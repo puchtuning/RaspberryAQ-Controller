@@ -3,6 +3,7 @@ import os
 import xml.etree.cElementTree as ET
 import xml.dom.minidom as dom
 import mysql.connector
+import logging
 
 
 # ---Write-Frequency
@@ -21,7 +22,7 @@ mydb = mysql.connector.connect(
     database="Aquarium"
 )
 
-# Test
+
 
 
 # ---Functions Start
@@ -42,6 +43,11 @@ def load_controller_input(xmlnode):
 
     return(str(xmlvalue))
 
+# --Initialize Logging
+logtime = time.strftime("%Y-%m-%d")
+logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s',datefmt='%Y-%m-%d %H:%M:%S',filename="log\\" + logtime + "_RaspberryAQ.log", level=logging.INFO)
+
+
 # --Functions Ende
 
 
@@ -51,6 +57,9 @@ aq_co2_on = load_controller_input("aq_co2_on")
 aq_co2_off = load_controller_input("aq_co2_off")
 aq_temp = load_controller_input("aq_temp")
 
+
+
+logging.info('Server-RaspberryAQ Started!')
 
 while True:
 
@@ -63,15 +72,20 @@ while True:
 
     if(daytime >= aq_main_light_on and daytime <= aq_main_light_off):
         aq_main_light_status = "On"
+        logging.info('Mainlight is switched on')
     else:
         aq_main_light_status = "Off"
+        logging.info('Mainlight is switched off')
 
 # ---CO2 Switching
 
     if(daytime >= aq_co2_on and daytime <= aq_co2_off):
         aq_co2_status = "On"
+        logging.info('CO2 is switched on')
+
     else:
         aq_co2_status = "Off"
+        logging.info('CO2 is switched off')
 
 
 # ---Output
