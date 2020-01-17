@@ -1,7 +1,7 @@
 from tkinter import Tk,Label,Entry,Button,Spinbox
 from tkinter import ttk
 from tkinter import messagebox
-
+import os
 import xml.etree.cElementTree as ET
 import time
 
@@ -56,7 +56,8 @@ def clickedadmin():
 
         tree = ET.ElementTree(root)
     
-        tree.write("controller-input.xml")
+        tree.write("data\\" + "_controller-input.xml")
+        
         print("Values written")
         messagebox.showinfo('Action successfull','Values written successfully') #shows info message
 
