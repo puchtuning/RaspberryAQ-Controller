@@ -140,11 +140,16 @@ lbladmint1.grid(column=0, row=7)
 lbladmint2.grid(column=0, row=8)
 spinadmint1.grid(column=1, row=8)
 
+##-- Buttons
+
+lblsubmit = Label(tab2, text=" ", font=("Arial", 10))
+lblsubmit.grid(column=1, row=10)
+
 btnadmin1 = Button(tab2, text="Config File Schreiben", bg="gray", fg="White", command=clickedadmin) #--Definiert ein Button
-btnadmin1.grid(column=1, row=10) #--Definiert die Position des Buttons
+btnadmin1.grid(column=1, row=11) #--Definiert die Position des Buttons
 
 btnadmin2 = Button(tab2, text="Cancel", bg="gray", fg="White", command=clickecancel) #--Definiert ein Button
-btnadmin2.grid(column=2, row=10) #--Definiert die Position des Buttons
+btnadmin2.grid(column=2, row=11) #--Definiert die Position des Buttons
 
 
 
