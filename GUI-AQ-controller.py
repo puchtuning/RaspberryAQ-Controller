@@ -86,7 +86,7 @@ def clickedadmin():
 window = Tk()  # --Startet Tkinter als window
 
 
-window.title("Aquarium Controller GUI")  # --Titel des Fensters
+window.title("RaspberryAQ GUI")  # --Titel des Fensters
 window.geometry('700x600')  # --Definiert die Fenstergroesse
 
 tab_control = ttk.Notebook(window)
@@ -101,7 +101,7 @@ tab_control.pack(expand=1, fill='both')
 
 # --- Tab Dashboard
 
-lbl1 = Label(tab1, text="Aquarium Controller Dashboard",
+lbl1 = Label(tab1, text="RaspberryAQ Dashboard",
              font=("Arial Bold", 20))  # --Definiert ein Textlable
 lbl1.grid(column=0, row=0)  # --Definiert die Position des Textlabels
 lbl2 = Label(tab1, text="", font=("Arial Bold", 20))
@@ -118,8 +118,7 @@ btn1 = Button(tab1, text="Datenladen", bg="gray", fg="White",
 btn1.grid(column=1, row=2)  # --Definiert die Position des Buttons
 
 # --- Tab Admin
-lbladmin1 = Label(tab2, text="Aquarium Controller Admin",
-                  font=("Arial Bold", 20))
+lbladmin1 = Label(tab2, text="RaspberryAQ Admin", font=("Arial Bold", 20))
 
 lbladminl1 = Label(tab2, text="Licht", font=("Arial", 10))
 lbladminl2 = Label(tab2, text="Einschaltzeit (z.B. 08:00):",
@@ -169,12 +168,10 @@ spinadmint1.grid(column=1, row=8)
 lblsubmit = Label(tab2, text=" ", font=("Arial", 10))
 lblsubmit.grid(column=1, row=10)
 
-btnadmin1 = Button(tab2, text="Config File Schreiben", bg="gray",
-                   fg="White", command=clickedadmin)  # --Definiert ein Button
+btnadmin1 = Button(tab2, text="Config File Schreiben", bg="gray", fg="White", command=clickedadmin)  # --Definiert ein Button
 btnadmin1.grid(column=1, row=11)  # --Definiert die Position des Buttons
 
-btnadmin2 = Button(tab2, text="Cancel", bg="gray", fg="White",
-                   command=clickecancel)  # --Definiert ein Button
+btnadmin2 = Button(tab2, text="Cancel", bg="gray", fg="White", command=clickecancel)  # --Definiert ein Button
 btnadmin2.grid(column=2, row=11)  # --Definiert die Position des Buttons
 
 

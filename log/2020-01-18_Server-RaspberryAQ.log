@@ -429,3 +429,70 @@
 2020-01-18 20:40:04 INFO: CO2 is switched on
 2020-01-18 20:41:09 INFO: Values have been saved in JSON file
 2020-01-18 20:41:11 INFO: Closing RasperryAQ-GUI
+2020-01-18 20:46:34 INFO: Server-RaspberryAQ Started!
+2020-01-18 20:46:34 INFO: Inputfile imported
+2020-01-18 20:46:34 INFO: Mainlight is switched on
+2020-01-18 20:46:34 INFO: CO2 is switched on
+2020-01-18 20:46:34 INFO: Checking for new Input file.
+2020-01-18 20:46:39 INFO: Mainlight is switched on
+2020-01-18 20:46:39 INFO: CO2 is switched on
+2020-01-18 20:46:44 INFO: Mainlight is switched on
+2020-01-18 20:46:44 INFO: CO2 is switched on
+2020-01-18 20:48:58 INFO: Server-RaspberryAQ Started!
+2020-01-18 20:48:58 INFO: Inputfile imported
+2020-01-18 20:48:58 INFO: Mainlight is switched on
+2020-01-18 20:48:58 INFO: CO2 is switched on
+2020-01-18 20:48:58 INFO: Checking for new Input file.
+2020-01-18 20:49:26 INFO: Server-RaspberryAQ Started!
+2020-01-18 20:49:26 INFO: Inputfile imported
+2020-01-18 20:49:26 INFO: Mainlight is switched on
+2020-01-18 20:49:26 INFO: CO2 is switched on
+2020-01-18 20:49:26 INFO: Checking for new Input file.
+2020-01-18 20:49:31 INFO: Mainlight is switched on
+2020-01-18 20:49:31 INFO: CO2 is switched on
+2020-01-18 20:50:26 INFO: Server-RaspberryAQ Started!
+2020-01-18 20:50:31 INFO: Inputfile imported
+2020-01-18 20:50:31 INFO: Mainlight is switched on
+2020-01-18 20:50:31 INFO: CO2 is switched on
+2020-01-18 20:50:31 INFO: Checking for new Input file.
+2020-01-18 20:50:36 INFO: Mainlight is switched on
+2020-01-18 20:50:36 INFO: CO2 is switched on
+2020-01-18 20:50:41 INFO: Mainlight is switched on
+2020-01-18 20:50:41 INFO: CO2 is switched on
+2020-01-18 20:50:46 INFO: Mainlight is switched on
+2020-01-18 20:50:46 INFO: CO2 is switched on
+2020-01-18 20:50:51 INFO: Mainlight is switched on
+2020-01-18 20:50:51 INFO: CO2 is switched on
+2020-01-18 20:50:56 INFO: Mainlight is switched on
+2020-01-18 20:50:56 INFO: CO2 is switched on
+2020-01-18 20:51:01 INFO: Mainlight is switched on
+2020-01-18 20:51:01 INFO: CO2 is switched on
+2020-01-18 20:51:06 INFO: Mainlight is switched on
+2020-01-18 20:51:06 INFO: CO2 is switched on
+2020-01-18 20:51:11 INFO: Mainlight is switched on
+2020-01-18 20:51:11 INFO: CO2 is switched on
+2020-01-18 20:51:16 INFO: Mainlight is switched on
+2020-01-18 20:51:16 INFO: CO2 is switched on
+2020-01-18 20:51:21 INFO: Mainlight is switched on
+2020-01-18 20:51:21 INFO: CO2 is switched on
+2020-01-18 20:51:26 INFO: Server-RaspberryAQ Started!
+2020-01-18 20:51:31 INFO: Inputfile imported
+2020-01-18 20:51:31 INFO: Mainlight is switched on
+2020-01-18 20:51:31 INFO: CO2 is switched on
+2020-01-18 20:51:31 INFO: Checking for new Input file.
+2020-01-18 20:51:36 INFO: Mainlight is switched on
+2020-01-18 20:51:36 INFO: CO2 is switched on
+2020-01-18 20:51:41 INFO: Mainlight is switched on
+2020-01-18 20:51:41 INFO: CO2 is switched on
+2020-01-18 20:51:44 INFO: Server-RaspberryAQ Started!
+2020-01-18 20:51:49 INFO: Inputfile imported
+2020-01-18 20:51:49 INFO: Mainlight is switched on
+2020-01-18 20:51:49 INFO: CO2 is switched on
+2020-01-18 20:51:49 INFO: Checking for new Input file.
+2020-01-18 20:51:54 INFO: Mainlight is switched on
+2020-01-18 20:51:54 INFO: CO2 is switched on
+2020-01-18 20:51:59 INFO: Mainlight is switched on
+2020-01-18 20:51:59 INFO: CO2 is switched on
+2020-01-18 20:52:51 INFO: GUI-RaspberryAQ Started!
+2020-01-18 20:53:10 INFO: GUI-RaspberryAQ Started!
+2020-01-18 20:53:27 INFO: GUI-RaspberryAQ Started!

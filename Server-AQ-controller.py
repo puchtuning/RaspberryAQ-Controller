@@ -31,6 +31,17 @@ checkinputfile = 60  # default is 60 / all 5 minutes
 loopcounterinput = checkinputfile
 loopcountermysql = writetomysql
 
+# ---Text colors
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 # ---Controller Input JSON Function
 
 
@@ -49,6 +60,8 @@ logtime = time.strftime("%Y-%m-%d")
 logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S',
                     filename="log\\" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
 logging.info('Server-RaspberryAQ Started!')
+print(f"{bcolors.OKGREEN}Server-RaspberryAQ Started!{bcolors.ENDC}")
+time.sleep(5)
 
 # --Initialize JSON
 data_RaspberryAQ = {}
@@ -66,8 +79,8 @@ try:
 
 
 except:
-    print("Data: Inputfile couldn't be found!")
-    print("Shuting down RasperryAQ-Server!")
+    print(f"{bcolors.WARNING}Warning: Inputfile couldn't be found!{bcolors.ENDC}")
+    print(f"{bcolors.WARNING}Shuting down RasperryAQ-Server!{bcolors.ENDC}")
     logging.warning("Data: Inputfile couldn't be found!")
     exit()
 
@@ -123,7 +136,7 @@ while True:
 
 # ---Output
 # --Terminal output
-    print("---Controller Values---")
+    print(f"{bcolors.HEADER}---Controller Values---{bcolors.ENDC}")
     print("--Date and Time--")
     print("Date and Daytime: ", date, daytime)
     print("Fulltime: ", fulltime)
