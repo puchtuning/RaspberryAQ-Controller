@@ -9,8 +9,13 @@ import json  # -To write/read the data Files
 
 
 # ---Time Function
-timestamp = time.strftime("%d.%m.%Y %H:%M")
+timestamp = time.strftime("%d.%m.%Y %H:%M:%S")
+logtime = time.strftime("%Y-%m-%d")
 
+
+# ---Logging
+logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s',datefmt='%Y-%m-%d %H:%M:%S',filename="log\\" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
+logging.info('GUI-RaspberryAQ Started!')
 
 # --Check for Blanks
 def is_not_blank(mystring, length):
@@ -28,6 +33,7 @@ def clicked():
 
 
 def clickecancel():
+    logging.info('Closing RasperryAQ-GUI')
     window.destroy()
 
 
@@ -45,6 +51,7 @@ def clickedadmin():
         is_not_blank(aq_co2_off, 5)
         is_not_blank(aq_temp, 2)
 
+        timestamp = time.strftime("%d.%m.%Y %H:%M:%S")
 
         # --Initialize JSON
         controllerinput = {}
@@ -62,14 +69,17 @@ def clickedadmin():
             json.dump(controllerinput, f)
 
         print("Values written")
+        logging.info('Values have been saved in JSON file')
         # shows info message
         messagebox.showinfo('Action successfull',
                             'Values written successfully')
 
     except ValueError:
         print("Values missing")
+        logging.warning('Values could not be written')
         # shows warning message
         messagebox.showerror('Error: Falsche Werte', 'Eingabe Überprüfen')
+
 
 
 window = Tk()  # --Startet Tkinter als window
