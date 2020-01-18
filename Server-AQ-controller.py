@@ -53,7 +53,7 @@ loopcountermysql = writetomysql
 
 # -----GPIO-Configuration
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(extra_relay, GPIO.OU) #free relay
+GPIO.setup(extra_relay, GPIO.OUT) #free relay
 GPIO.setup(heater_relay, GPIO.OUT) #heater
 GPIO.setup(mainlight_relay, GPIO.OUT) #mainlight
 GPIO.setup(co2_relay, GPIO.OUT) #co2

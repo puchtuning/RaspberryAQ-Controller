@@ -1,1 +1,22 @@
-{"18.01.2020 21:52:44": {"aq_mainlight_status": "Off", "aq_co2_status": "Off"}, "18.01.2020 21:52:49": {"aq_mainlight_status": "Off", "aq_co2_status": "Off"}, "18.01.2020 21:52:54": {"aq_mainlight_status": "Off", "aq_co2_status": "Off"}, "18.01.2020 21:52:59": {"aq_mainlight_status": "Off", "aq_co2_status": "Off"}, "18.01.2020 21:53:04": {"aq_mainlight_status": "Off", "aq_co2_status": "Off"}}
+{
+    "18.01.2020 21:52:44": {
+        "aq_mainlight_status": "Off",
+        "aq_co2_status": "Off"
+    },
+    "18.01.2020 21:52:49": {
+        "aq_mainlight_status": "Off",
+        "aq_co2_status": "Off"
+    },
+    "18.01.2020 21:52:54": {
+        "aq_mainlight_status": "Off",
+        "aq_co2_status": "Off"
+    },
+    "18.01.2020 21:52:59": {
+        "aq_mainlight_status": "Off",
+        "aq_co2_status": "Off"
+    },
+    "18.01.2020 21:53:04": {
+        "aq_mainlight_status": "Off",
+        "aq_co2_status": "Off"
+    }
+}
