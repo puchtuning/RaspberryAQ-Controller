@@ -14,7 +14,7 @@ logtime = time.strftime("%Y-%m-%d")
 
 # ---Logging
 logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S',
-                    filename="log\\" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
+                    filename="log/" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
 logging.info('GUI-RaspberryAQ Started!')
 
 # ---Check for Blanks
@@ -22,7 +22,7 @@ logging.info('GUI-RaspberryAQ Started!')
 
 def is_not_blank(mystring, length):
     if(len(mystring) == length):
-        error = "none"
+        print("")
     else:
         # Erstellt einen Error der durch die try Funktion gewertet erden kann
         raise ValueError('No Value specified')
@@ -67,7 +67,7 @@ def clickedadmin():
             "aq_temp": aq_temp
         }
 
-        with open("data\\_controller-input.json", 'w') as f:
+        with open("data/_controller-input.json", 'w') as f:
             json.dump(controllerinput, f)
 
         print("Values written")

@@ -48,7 +48,7 @@ class bcolors:
 def load_controller_input(JSONnode):
     print("Read controller input file")
 
-    inputJSON = open('data\\_controller-input.json')
+    inputJSON = open('data/_controller-input.json')
     controllerinput = json.load(inputJSON)
     JSONnode = controllerinput['Controller-input'][JSONnode]
 
@@ -58,7 +58,7 @@ def load_controller_input(JSONnode):
 # --Initialize Logging
 logtime = time.strftime("%Y-%m-%d")
 logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S',
-                    filename="log\\" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
+                    filename="log/" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
 logging.info('Server-RaspberryAQ Started!')
 print(f"{bcolors.OKGREEN}Server-RaspberryAQ Started!{bcolors.ENDC}")
 time.sleep(5)
@@ -186,7 +186,7 @@ while True:
     data_RaspberryAQ[fulltime] = {
         "aq_mainlight_status": aq_main_light_status, "aq_co2_status": aq_co2_status}
 
-    with open("data\\" + logtime + "_data_RaspberryAQ.json", 'w') as f:
+    with open("data/" + logtime + "_data_RaspberryAQ.json", 'w') as f:
         json.dump(data_RaspberryAQ, f)
 
 # ---Loop counters
