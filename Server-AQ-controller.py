@@ -1,3 +1,4 @@
+import RPi.GPIO as GPIO
 import os
 import time
 from datetime import datetime
@@ -6,12 +7,22 @@ import logging  # -Enables to write Logfiles
 import json  # -To write/read the data Files
 
 
-# ---Write-Frequency
-# Default value is 5 Seconds
-sleeptime = 5
+
 
 # -----Controller-Values
-Controller_ID = "Raps02test"
+Controller_ID = "Raps01"
+
+# ----Pinsetup (use BOARD pinaout)
+extra_relay = 32
+heater_relay = 36
+mainlight_relay = 38
+co2_relay = 40
+
+
+
+
+
+
 
 # -----mysql-connection infos
 useMYSQL = False # False = not in use / True = in use
@@ -22,6 +33,15 @@ passwd = "PASSWORT"
 database = "DBNAME"
 
 
+
+
+
+
+
+# ---Write-Frequency
+# Default value is 5 Seconds
+sleeptime = 5
+
 # ----Get conntroller Input
 checkinputfile = 60  # default is 60 / all 5 minutes
 
@@ -30,6 +50,13 @@ checkinputfile = 60  # default is 60 / all 5 minutes
 # ---Loop counters
 loopcounterinput = checkinputfile
 loopcountermysql = writetomysql
+
+# -----GPIO-Configuration
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(extra_relay, GPIO.OU) #free relay
+GPIO.setup(heater_relay, GPIO.OUT) #heater
+GPIO.setup(mainlight_relay, GPIO.OUT) #mainlight
+GPIO.setup(co2_relay, GPIO.OUT) #co2
 
 # ---Text colors
 class bcolors:
@@ -99,19 +126,23 @@ while True:
 # ---Light Switching
 
     if(daytime >= aq_main_light_on and daytime <= aq_main_light_off):
+        GPIO.output(mainlight_relay, GPIO.LOW)
         aq_main_light_status = "On"
         logging.info('Mainlight is switched on')
     else:
+        GPIO.output(mainlight_relay, GPIO.HIGH)
         aq_main_light_status = "Off"
         logging.info('Mainlight is switched off')
 
 # ---CO2 Switching
 
     if(daytime >= aq_co2_on and daytime <= aq_co2_off):
+        GPIO.output(co2_relay, GPIO.LOW)
         aq_co2_status = "On"
         logging.info('CO2 is switched on')
 
     else:
+        GPIO.output(co2_relay, GPIO.HIGH)
         aq_co2_status = "Off"
         logging.info('CO2 is switched off')
 

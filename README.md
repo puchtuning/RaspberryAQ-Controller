@@ -4,9 +4,9 @@ Coming Soon......  :)
 
 
 
-#Installation
+# Installation
 
 
-##Get required libarys
+## Get required libarys
 
 pip3 -r requirements.txt
