@@ -1,6 +1,6 @@
+import os
 import time
 from datetime import datetime
-import os
 import mysql.connector  # -Enables connection to MYSQL Database
 import logging  # -Enables to write Logfiles
 import json  # -To write/read the data Files
@@ -14,7 +14,8 @@ sleeptime = 5
 Controller_ID = "Raps02test"
 
 # -----mysql-connection infos
-useMYSQL = "FALSE"
+useMYSQL = False # False = not in use / True = in use
+writetomysql = 180 # default is 180 / all 15 minutes
 host = "MYSQLHOSTNAME"
 user = "USERNAME"
 passwd = "PASSWORT"
@@ -22,12 +23,13 @@ database = "DBNAME"
 
 
 # ----Get conntroller Input
-checkinputfile = 60  # default is all 60 / all 5 minutes
+checkinputfile = 60  # default is 60 / all 5 minutes
 
 
 # ---Functions Start
 # ---Loop counters
 loopcounterinput = checkinputfile
+loopcountermysql = writetomysql
 
 # ---Controller Input JSON Function
 
@@ -54,12 +56,20 @@ Controller_RaspberryAQ = {}
 
 # --Functions Ende
 
+try:
+    aq_main_light_on = load_controller_input("aq_main_light_on")
+    aq_main_light_off = load_controller_input("aq_main_light_off")
+    aq_co2_on = load_controller_input("aq_co2_on")
+    aq_co2_off = load_controller_input("aq_co2_off")
+    aq_temp = load_controller_input("aq_temp")
+    logging.info('Inputfile imported')
 
-aq_main_light_on = load_controller_input("aq_main_light_on")
-aq_main_light_off = load_controller_input("aq_main_light_off")
-aq_co2_on = load_controller_input("aq_co2_on")
-aq_co2_off = load_controller_input("aq_co2_off")
-aq_temp = load_controller_input("aq_temp")
+
+except:
+    print("Data: Inputfile couldn't be found!")
+    print("Shuting down RasperryAQ-Server!")
+    logging.warning("Data: Inputfile couldn't be found!")
+    exit()
 
 # Reads the time at wich the inputfile was saved
 lastinputtime = load_controller_input("timestamp")
@@ -118,7 +128,8 @@ while True:
     print("Date and Daytime: ", date, daytime)
     print("Fulltime: ", fulltime)
     print("--Light--")
-    print("Target time light on", aq_main_light_on,"and licht off", aq_main_light_off)
+    print("Target time light on", aq_main_light_on,
+          "and licht off", aq_main_light_off)
     print("Light status: ", aq_main_light_status)
 
     print("--CO2--")
@@ -130,21 +141,33 @@ while True:
 
 # --SQL output
 
-    if(useMYSQL == "TRUE"):
-        mydb = mysql.connector.connect(
-            host=host,
-            user=user,
-            passwd=passwd,
-            database=database
-        )
+    if(useMYSQL == True and loopcountermysql >= writetomysql):
+        try:
+            mydb = mysql.connector.connect( #Opens the MYSQL Connection
+                host=host,
+                user=user,
+                passwd=passwd,
+                database=database
+            )
 
-        mycursor = mydb.cursor()
+            mycursor = mydb.cursor()
 
-        sql = "INSERT INTO aq_controller (Controller_ID, aq_timestamp, aq_mainlight, aq_temp, aq_heater) VALUES (%s, %s, %s, %s, %s)"
-        val = (Controller_ID,  fulltime, aq_main_light_status, "0", "Off")
-        mycursor.execute(sql, val)
-        mydb.commit()
-        print(mycursor.rowcount, "record inserted.")
+            sql = "INSERT INTO aq_controller (Controller_ID, aq_timestamp, aq_mainlight, aq_temp, aq_heater) VALUES (%s, %s, %s, %s, %s)"
+            val = (Controller_ID,  fulltime, aq_main_light_status, "0", "Off")
+            mycursor.execute(sql, val)
+            mydb.commit()
+            print(mycursor.rowcount, "record inserted.")
+            logging.info("MYSQL: Values are written to MYSQL Database")
+
+            mydb.close #Closes the MYSQL Connection
+
+        
+        except:
+            print("MYSQL: Coudn't connect to MYSQL Database")
+            logging.warning("MYSQL: Coudn't connect to MYSQL Database")
+            pass
+    
+        loopcountermysql = 0
 
 # --Data File Output
     data_RaspberryAQ[fulltime] = {
@@ -155,9 +178,10 @@ while True:
 
 # ---Loop counters
     loopcounterinput = loopcounterinput + 1
+    loopcountermysql = loopcountermysql + 1
 
 # ---Delay
     time.sleep(sleeptime)
 
 # ---Beauty-Command
-    os.system('clear')  # Disabele for Debug
+    #os.system('clear')  # Disabele for Debug

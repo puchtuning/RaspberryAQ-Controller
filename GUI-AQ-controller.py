@@ -3,9 +3,8 @@ from tkinter import ttk
 from tkinter import messagebox
 import os
 import time
-import logging #-Enables to write Logfiles
+import logging  # -Enables to write Logfiles
 import json  # -To write/read the data Files
-
 
 
 # ---Time Function
@@ -14,10 +13,13 @@ logtime = time.strftime("%Y-%m-%d")
 
 
 # ---Logging
-logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s',datefmt='%Y-%m-%d %H:%M:%S',filename="log\\" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
+logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S',
+                    filename="log\\" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
 logging.info('GUI-RaspberryAQ Started!')
 
-# --Check for Blanks
+# ---Check for Blanks
+
+
 def is_not_blank(mystring, length):
     if(len(mystring) == length):
         error = "none"
@@ -56,14 +58,14 @@ def clickedadmin():
         # --Initialize JSON
         controllerinput = {}
 
-        controllerinput["Controller-input"] = { #Construct the input JSON file
+        controllerinput["Controller-input"] = {  # Construct the input JSON file
             "timestamp": timestamp,
             "aq_main_light_on": aq_main_light_on,
             "aq_main_light_off": aq_main_light_off,
             "aq_co2_on": aq_co2_on,
             "aq_co2_off": aq_co2_off,
             "aq_temp": aq_temp
-            }
+        }
 
         with open("data\\_controller-input.json", 'w') as f:
             json.dump(controllerinput, f)
@@ -79,7 +81,6 @@ def clickedadmin():
         logging.warning('Values could not be written')
         # shows warning message
         messagebox.showerror('Error: Falsche Werte', 'Eingabe Überprüfen')
-
 
 
 window = Tk()  # --Startet Tkinter als window
