@@ -44,7 +44,9 @@ def clickedadmin():
     aq_main_light_off = txtadminl2.get()
     aq_co2_on = txtadminc1.get()
     aq_co2_off = txtadminc2.get()
-    aq_temp = spinadmint1.get()
+    aq_temp = spinadmint1.get() + ".00"
+
+    aq_temp = float(aq_temp)
 
     try:
         is_not_blank(aq_main_light_on, 5)

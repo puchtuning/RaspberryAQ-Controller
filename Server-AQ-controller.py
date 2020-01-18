@@ -7,7 +7,7 @@ import logging  # -Enables to write Logfiles
 import json  # -To write/read the data Files
 
 
-
+aq_temp_sen = 25
 
 # -----Controller-Values
 Controller_ID = "Raps01"
@@ -123,7 +123,7 @@ while True:
     fulltime = time.strftime("%d.%m.%Y %H:%M:%S")
 
 
-# ---Light Switching
+# ---Light switching
 
     if(daytime >= aq_main_light_on and daytime <= aq_main_light_off):
         GPIO.output(mainlight_relay, GPIO.LOW)
@@ -134,7 +134,7 @@ while True:
         aq_main_light_status = "Off"
         logging.info('Mainlight is switched off')
 
-# ---CO2 Switching
+# ---CO2 switching
 
     if(daytime >= aq_co2_on and daytime <= aq_co2_off):
         GPIO.output(co2_relay, GPIO.LOW)
@@ -145,6 +145,17 @@ while True:
         GPIO.output(co2_relay, GPIO.HIGH)
         aq_co2_status = "Off"
         logging.info('CO2 is switched off')
+
+# ---Temp switching
+
+    if(aq_temp_sen >= aq_temp):
+        GPIO.output(heater_relay, GPIO.LOW)
+        aq_heater_status = "On"
+        logging.info('Heater is switched on')
+    else:
+        GPIO.output(heater_relay, GPIO.HIGH)
+        aq_heater_status = "Off"
+        logging.info('Heater is switched off')        
 
 # ---Check for new input file
     if(loopcounterinput >= checkinputfile):
@@ -168,20 +179,23 @@ while True:
 # ---Output
 # --Terminal output
     print(f"{bcolors.HEADER}---Controller Values---{bcolors.ENDC}")
-    print("--Date and Time--")
+    print(f"{bcolors.OKBLUE}--Date and Time--{bcolors.ENDC}")
     print("Date and Daytime: ", date, daytime)
     print("Fulltime: ", fulltime)
-    print("--Light--")
+    print(f"{bcolors.OKBLUE}--Light--{bcolors.ENDC}")
     print("Target time light on", aq_main_light_on,
           "and licht off", aq_main_light_off)
     print("Light status: ", aq_main_light_status)
 
-    print("--CO2--")
+    print(f"{bcolors.OKBLUE}--CO2--{bcolors.ENDC}")
     print("Target time CO2 on", aq_co2_on, "and CO2 off", aq_co2_off)
     print("CO2 status: ", aq_co2_status)
 
-    print("--Temprature--")
-    print("Target temprature:", aq_temp)
+    print(f"{bcolors.OKBLUE}--Temprature--{bcolors.ENDC}")
+    print("Target temprature:", aq_temp_sen)
+    print("Heater status: ", aq_heater_status)
+
+    print(f"{bcolors.OKBLUE}--Other information--{bcolors.ENDC}")
 
 # --SQL output
 
@@ -207,7 +221,7 @@ while True:
 
         
         except:
-            print("MYSQL: Coudn't connect to MYSQL Database")
+            print(f"{bcolors.WARNING}MYSQL: Coudn't connect to MYSQL Database{bcolors.ENDC}")
             logging.warning("MYSQL: Coudn't connect to MYSQL Database")
             pass
     
@@ -215,7 +229,7 @@ while True:
 
 # --Data File Output
     data_RaspberryAQ[fulltime] = {
-        "aq_mainlight_status": aq_main_light_status, "aq_co2_status": aq_co2_status}
+        "aq_mainlight_status": aq_main_light_status, "aq_co2_status": aq_co2_status, "aq_heater_status": aq_heater_status, "aq_temp_sen": aq_temp_sen}
 
     with open("data/" + logtime + "_data_RaspberryAQ.json", 'w') as f:
         json.dump(data_RaspberryAQ, f)
@@ -228,4 +242,4 @@ while True:
     time.sleep(sleeptime)
 
 # ---Beauty-Command
-    #os.system('clear')  # Disabele for Debug
+    os.system('clear')  # Disabele for Debug
