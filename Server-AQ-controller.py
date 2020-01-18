@@ -4,7 +4,7 @@ import xml.etree.cElementTree as ET
 import xml.dom.minidom as dom
 import mysql.connector #-Enables connection to MYSQL Database
 import logging #-Enables to write Logfiles
-import json #-To write the data Files
+import json #-To write/read the data Files
 
 
 # ---Write-Frequency
