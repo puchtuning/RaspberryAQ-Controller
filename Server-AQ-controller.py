@@ -2,8 +2,9 @@ import time
 import os
 import xml.etree.cElementTree as ET
 import xml.dom.minidom as dom
-import mysql.connector
-import logging
+import mysql.connector #-Enables connection to MYSQL Database
+import logging #-Enables to write Logfiles
+import json #-To write the data Files
 
 
 # ---Write-Frequency
@@ -47,6 +48,8 @@ def load_controller_input(xmlnode):
 logtime = time.strftime("%Y-%m-%d")
 logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s',datefmt='%Y-%m-%d %H:%M:%S',filename="log\\" + logtime + "_RaspberryAQ.log", level=logging.INFO)
 
+# --Initialize JSON
+data_RaspberryAQ = {}
 
 # --Functions Ende
 
@@ -117,6 +120,11 @@ while True:
         mydb.commit()
         print(mycursor.rowcount, "record inserted.")
     
+# --Data File Output
+    data_RaspberryAQ[fulltime] = {"aq_mainlight_status": aq_main_light_status, "aq_co2_status": aq_co2_status}
+
+    with open("data\\"+ logtime + "_data_RaspberryAQ.json", 'w') as f:
+        json.dump(data_RaspberryAQ, f)
 
 
 # ---Delay
