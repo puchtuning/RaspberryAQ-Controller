@@ -1,7 +1,5 @@
 import time
 import os
-import xml.etree.cElementTree as ET
-import xml.dom.minidom as dom
 import mysql.connector #-Enables connection to MYSQL Database
 import logging #-Enables to write Logfiles
 import json #-To write/read the data Files
@@ -28,21 +26,17 @@ mydb = mysql.connector.connect(
 
 # ---Functions Start
 
-# ---Controller Input XML Function
+# ---Controller Input JSON Function
 
-def load_controller_input(xmlnode):
+def load_controller_input(JSONnode):
     print("Read controller input file")
+    
+    inputJSON = open('data\\_controller-input.json')
+    controllerinput = json.load(inputJSON)
+    JSONnode = controllerinput['Controller-input'][JSONnode]
+    
 
-    xmlinput = dom.parse("data\\_controller-input.xml")
-
-    for eintrag in xmlinput.firstChild.childNodes:
-        if eintrag.nodeName == "controller-input":
-            for knoten in eintrag.childNodes:
-                if(knoten.nodeName == xmlnode):
-                    print(xmlnode + ": " + knoten.firstChild.data.strip())
-                    xmlvalue = knoten.firstChild.data.strip()
-
-    return(str(xmlvalue))
+    return(str(JSONnode))
 
 # --Initialize Logging
 logtime = time.strftime("%Y-%m-%d")
