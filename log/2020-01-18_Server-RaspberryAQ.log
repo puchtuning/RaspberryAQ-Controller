@@ -982,3 +982,321 @@
 2020-01-18 23:13:00 INFO: GUI-RaspberryAQ Started!
 2020-01-18 23:13:37 INFO: GUI-RaspberryAQ Started!
 2020-01-18 23:15:02 INFO: GUI-RaspberryAQ Started!
+2020-01-18 23:19:06 INFO: GUI-RaspberryAQ Started!
+2020-01-18 23:20:35 INFO: GUI-RaspberryAQ Started!
+2020-01-18 23:23:54 INFO: GUI-RaspberryAQ Started!
+2020-01-18 23:24:37 INFO: GUI-RaspberryAQ Started!
+2020-01-18 23:26:04 INFO: Server-RaspberryAQ Started!
+2020-01-18 23:26:09 INFO: Inputfile imported
+2020-01-18 23:26:21 INFO: Mainlight is switched on
+2020-01-18 23:26:21 INFO: CO2 is switched on
+2020-01-18 23:26:21 INFO: Heater is switched on
+2020-01-18 23:26:21 INFO: Checking for new Input file.
+2020-01-18 23:26:27 INFO: Mainlight is switched on
+2020-01-18 23:26:27 INFO: CO2 is switched on
+2020-01-18 23:26:27 INFO: Heater is switched on
+2020-01-18 23:26:32 INFO: Mainlight is switched on
+2020-01-18 23:26:32 INFO: CO2 is switched on
+2020-01-18 23:26:32 INFO: Heater is switched on
+2020-01-18 23:26:37 INFO: Server-RaspberryAQ Started!
+2020-01-18 23:26:42 INFO: Inputfile imported
+2020-01-18 23:26:42 INFO: Mainlight is switched on
+2020-01-18 23:26:42 INFO: CO2 is switched on
+2020-01-18 23:26:42 INFO: Heater is switched on
+2020-01-18 23:26:42 INFO: Checking for new Input file.
+2020-01-18 23:26:47 INFO: Mainlight is switched on
+2020-01-18 23:26:47 INFO: CO2 is switched on
+2020-01-18 23:26:47 INFO: Heater is switched on
+2020-01-18 23:26:52 INFO: Mainlight is switched on
+2020-01-18 23:26:52 INFO: CO2 is switched on
+2020-01-18 23:26:52 INFO: Heater is switched on
+2020-01-18 23:26:57 INFO: Mainlight is switched on
+2020-01-18 23:26:57 INFO: CO2 is switched on
+2020-01-18 23:26:57 INFO: Heater is switched on
+2020-01-18 23:30:18 INFO: Server-RaspberryAQ Started!
+2020-01-18 23:30:23 INFO: Inputfile imported
+2020-01-18 23:30:23 INFO: Mainlight is switched on
+2020-01-18 23:30:23 INFO: CO2 is switched on
+2020-01-18 23:30:23 INFO: Heater is switched on
+2020-01-18 23:30:23 INFO: Checking for new Input file.
+2020-01-18 23:30:28 INFO: Mainlight is switched on
+2020-01-18 23:30:28 INFO: CO2 is switched on
+2020-01-18 23:30:28 INFO: Heater is switched on
+2020-01-18 23:30:33 INFO: Mainlight is switched on
+2020-01-18 23:30:33 INFO: CO2 is switched on
+2020-01-18 23:30:33 INFO: Heater is switched on
+2020-01-18 23:30:38 INFO: Mainlight is switched on
+2020-01-18 23:30:38 INFO: CO2 is switched on
+2020-01-18 23:30:38 INFO: Heater is switched on
+2020-01-18 23:30:43 INFO: Mainlight is switched on
+2020-01-18 23:30:43 INFO: CO2 is switched on
+2020-01-18 23:30:43 INFO: Heater is switched on
+2020-01-18 23:30:48 INFO: Mainlight is switched on
+2020-01-18 23:30:48 INFO: CO2 is switched on
+2020-01-18 23:30:48 INFO: Heater is switched on
+2020-01-18 23:30:48 INFO: Checking for new Input file.
+2020-01-18 23:30:54 INFO: Server-RaspberryAQ Started!
+2020-01-18 23:30:59 INFO: Inputfile imported
+2020-01-18 23:30:59 INFO: Mainlight is switched on
+2020-01-18 23:30:59 INFO: CO2 is switched on
+2020-01-18 23:30:59 INFO: Heater is switched on
+2020-01-18 23:30:59 INFO: Checking for new Input file.
+2020-01-18 23:31:04 INFO: Mainlight is switched on
+2020-01-18 23:31:04 INFO: CO2 is switched on
+2020-01-18 23:31:04 INFO: Heater is switched on
+2020-01-18 23:31:09 INFO: Mainlight is switched on
+2020-01-18 23:31:09 INFO: CO2 is switched on
+2020-01-18 23:31:09 INFO: Heater is switched on
+2020-01-18 23:31:14 INFO: Mainlight is switched on
+2020-01-18 23:31:14 INFO: CO2 is switched on
+2020-01-18 23:31:14 INFO: Heater is switched on
+2020-01-18 23:31:19 INFO: Mainlight is switched on
+2020-01-18 23:31:19 INFO: CO2 is switched on
+2020-01-18 23:31:19 INFO: Heater is switched on
+2020-01-18 23:31:24 INFO: Mainlight is switched on
+2020-01-18 23:31:24 INFO: CO2 is switched on
+2020-01-18 23:31:24 INFO: Heater is switched on
+2020-01-18 23:31:24 INFO: Checking for new Input file.
+2020-01-18 23:31:29 INFO: Mainlight is switched on
+2020-01-18 23:31:29 INFO: CO2 is switched on
+2020-01-18 23:31:29 INFO: Heater is switched on
+2020-01-18 23:31:34 INFO: Mainlight is switched on
+2020-01-18 23:31:34 INFO: CO2 is switched on
+2020-01-18 23:31:34 INFO: Heater is switched on
+2020-01-18 23:31:39 INFO: Mainlight is switched on
+2020-01-18 23:31:39 INFO: CO2 is switched on
+2020-01-18 23:31:39 INFO: Heater is switched on
+2020-01-18 23:31:44 INFO: Mainlight is switched on
+2020-01-18 23:31:44 INFO: CO2 is switched on
+2020-01-18 23:31:44 INFO: Heater is switched on
+2020-01-18 23:31:49 INFO: Mainlight is switched on
+2020-01-18 23:31:49 INFO: CO2 is switched on
+2020-01-18 23:31:49 INFO: Heater is switched on
+2020-01-18 23:31:49 INFO: Checking for new Input file.
+2020-01-18 23:31:54 INFO: Mainlight is switched on
+2020-01-18 23:31:54 INFO: CO2 is switched on
+2020-01-18 23:31:54 INFO: Heater is switched on
+2020-01-18 23:31:59 INFO: Mainlight is switched on
+2020-01-18 23:31:59 INFO: CO2 is switched on
+2020-01-18 23:31:59 INFO: Heater is switched on
+2020-01-18 23:32:04 INFO: Mainlight is switched on
+2020-01-18 23:32:04 INFO: CO2 is switched on
+2020-01-18 23:32:04 INFO: Heater is switched on
+2020-01-18 23:32:09 INFO: Mainlight is switched on
+2020-01-18 23:32:09 INFO: CO2 is switched on
+2020-01-18 23:32:09 INFO: Heater is switched on
+2020-01-18 23:32:14 INFO: Mainlight is switched on
+2020-01-18 23:32:14 INFO: CO2 is switched on
+2020-01-18 23:32:14 INFO: Heater is switched on
+2020-01-18 23:32:14 INFO: Checking for new Input file.
+2020-01-18 23:32:19 INFO: Mainlight is switched on
+2020-01-18 23:32:19 INFO: CO2 is switched on
+2020-01-18 23:32:19 INFO: Heater is switched on
+2020-01-18 23:32:24 INFO: Mainlight is switched on
+2020-01-18 23:32:24 INFO: CO2 is switched on
+2020-01-18 23:32:24 INFO: Heater is switched on
+2020-01-18 23:32:29 INFO: Mainlight is switched on
+2020-01-18 23:32:29 INFO: CO2 is switched on
+2020-01-18 23:32:29 INFO: Heater is switched on
+2020-01-18 23:32:34 INFO: Mainlight is switched on
+2020-01-18 23:32:34 INFO: CO2 is switched on
+2020-01-18 23:32:34 INFO: Heater is switched on
+2020-01-18 23:32:39 INFO: Mainlight is switched on
+2020-01-18 23:32:39 INFO: CO2 is switched on
+2020-01-18 23:32:39 INFO: Heater is switched on
+2020-01-18 23:32:39 INFO: Checking for new Input file.
+2020-01-18 23:32:39 WARNING: Data: Inputfile couldn't be found!
+2020-01-18 23:32:44 INFO: Mainlight is switched on
+2020-01-18 23:32:44 INFO: CO2 is switched on
+2020-01-18 23:32:44 INFO: Heater is switched on
+2020-01-18 23:32:49 INFO: Mainlight is switched on
+2020-01-18 23:32:49 INFO: CO2 is switched on
+2020-01-18 23:32:49 INFO: Heater is switched on
+2020-01-18 23:32:54 INFO: Mainlight is switched on
+2020-01-18 23:32:54 INFO: CO2 is switched on
+2020-01-18 23:32:54 INFO: Heater is switched on
+2020-01-18 23:32:59 INFO: Mainlight is switched on
+2020-01-18 23:32:59 INFO: CO2 is switched on
+2020-01-18 23:32:59 INFO: Heater is switched on
+2020-01-18 23:33:04 INFO: Mainlight is switched on
+2020-01-18 23:33:04 INFO: CO2 is switched on
+2020-01-18 23:33:04 INFO: Heater is switched on
+2020-01-18 23:33:04 INFO: Checking for new Input file.
+2020-01-18 23:33:04 WARNING: Data: Inputfile couldn't be found!
+2020-01-18 23:33:09 INFO: Mainlight is switched on
+2020-01-18 23:33:09 INFO: CO2 is switched on
+2020-01-18 23:33:09 INFO: Heater is switched on
+2020-01-18 23:33:14 INFO: Mainlight is switched on
+2020-01-18 23:33:14 INFO: CO2 is switched on
+2020-01-18 23:33:14 INFO: Heater is switched on
+2020-01-18 23:33:19 INFO: Mainlight is switched on
+2020-01-18 23:33:19 INFO: CO2 is switched on
+2020-01-18 23:33:19 INFO: Heater is switched on
+2020-01-18 23:33:19 INFO: GUI-RaspberryAQ Started!
+2020-01-18 23:33:24 INFO: Mainlight is switched on
+2020-01-18 23:33:24 INFO: CO2 is switched on
+2020-01-18 23:33:24 INFO: Heater is switched on
+2020-01-18 23:33:29 INFO: Mainlight is switched on
+2020-01-18 23:33:29 INFO: CO2 is switched on
+2020-01-18 23:33:29 INFO: Heater is switched on
+2020-01-18 23:33:29 INFO: Checking for new Input file.
+2020-01-18 23:33:29 WARNING: Data: Inputfile couldn't be found!
+2020-01-18 23:33:32 INFO: Values have been saved in JSON file
+2020-01-18 23:33:34 INFO: Mainlight is switched on
+2020-01-18 23:33:34 INFO: CO2 is switched on
+2020-01-18 23:33:34 INFO: Heater is switched on
+2020-01-18 23:33:39 INFO: Mainlight is switched on
+2020-01-18 23:33:39 INFO: CO2 is switched on
+2020-01-18 23:33:39 INFO: Heater is switched on
+2020-01-18 23:33:44 INFO: Mainlight is switched on
+2020-01-18 23:33:44 INFO: CO2 is switched on
+2020-01-18 23:33:44 INFO: Heater is switched on
+2020-01-18 23:33:49 INFO: Mainlight is switched on
+2020-01-18 23:33:49 INFO: CO2 is switched on
+2020-01-18 23:33:49 INFO: Heater is switched on
+2020-01-18 23:33:54 INFO: Mainlight is switched on
+2020-01-18 23:33:54 INFO: CO2 is switched on
+2020-01-18 23:33:54 INFO: Heater is switched on
+2020-01-18 23:33:54 INFO: Checking for new Input file.
+2020-01-18 23:33:54 INFO: Inputfile updated!
+2020-01-18 23:33:59 INFO: Mainlight is switched off
+2020-01-18 23:33:59 INFO: CO2 is switched off
+2020-01-18 23:34:00 INFO: Server-RaspberryAQ Started!
+2020-01-18 23:34:05 INFO: Inputfile imported
+2020-01-18 23:34:05 INFO: Mainlight is switched off
+2020-01-18 23:34:05 INFO: CO2 is switched off
+2020-01-18 23:34:05 INFO: Heater is switched on
+2020-01-18 23:34:05 INFO: Checking for new Input file.
+2020-01-18 23:35:20 INFO: Server-RaspberryAQ Started!
+2020-01-18 23:35:25 INFO: Inputfile imported
+2020-01-18 23:35:25 INFO: Mainlight is switched off
+2020-01-18 23:35:25 INFO: CO2 is switched off
+2020-01-18 23:35:25 INFO: Heater is switched on
+2020-01-18 23:35:25 INFO: Checking for new Input file.
+2020-01-18 23:35:30 INFO: Mainlight is switched off
+2020-01-18 23:35:30 INFO: CO2 is switched off
+2020-01-18 23:35:30 INFO: Heater is switched on
+2020-01-18 23:35:35 INFO: Mainlight is switched off
+2020-01-18 23:35:35 INFO: CO2 is switched off
+2020-01-18 23:35:35 INFO: Heater is switched on
+2020-01-18 23:35:40 INFO: Mainlight is switched off
+2020-01-18 23:35:40 INFO: CO2 is switched off
+2020-01-18 23:35:40 INFO: Heater is switched on
+2020-01-18 23:35:45 INFO: Mainlight is switched off
+2020-01-18 23:35:45 INFO: CO2 is switched off
+2020-01-18 23:35:45 INFO: Heater is switched on
+2020-01-18 23:35:50 INFO: Mainlight is switched off
+2020-01-18 23:35:50 INFO: CO2 is switched off
+2020-01-18 23:35:50 INFO: Heater is switched on
+2020-01-18 23:35:50 INFO: Checking for new Input file.
+2020-01-18 23:35:55 INFO: Mainlight is switched off
+2020-01-18 23:35:55 INFO: CO2 is switched off
+2020-01-18 23:35:55 INFO: Heater is switched on
+2020-01-18 23:35:59 INFO: GUI-RaspberryAQ Started!
+2020-01-18 23:36:00 INFO: Mainlight is switched off
+2020-01-18 23:36:00 INFO: CO2 is switched off
+2020-01-18 23:36:00 INFO: Heater is switched on
+2020-01-18 23:36:05 INFO: Mainlight is switched off
+2020-01-18 23:36:05 INFO: CO2 is switched off
+2020-01-18 23:36:05 INFO: Heater is switched on
+2020-01-18 23:36:10 INFO: Mainlight is switched off
+2020-01-18 23:36:10 INFO: CO2 is switched off
+2020-01-18 23:36:10 INFO: Heater is switched on
+2020-01-18 23:36:15 INFO: Mainlight is switched off
+2020-01-18 23:36:15 INFO: CO2 is switched off
+2020-01-18 23:36:15 INFO: Heater is switched on
+2020-01-18 23:36:15 INFO: Checking for new Input file.
+2020-01-18 23:36:18 INFO: Values have been saved in JSON file
+2020-01-18 23:36:20 INFO: Mainlight is switched off
+2020-01-18 23:36:20 INFO: CO2 is switched off
+2020-01-18 23:36:20 INFO: Heater is switched on
+2020-01-18 23:36:25 INFO: Mainlight is switched off
+2020-01-18 23:36:25 INFO: CO2 is switched off
+2020-01-18 23:36:25 INFO: Heater is switched on
+2020-01-18 23:36:30 INFO: Mainlight is switched off
+2020-01-18 23:36:30 INFO: CO2 is switched off
+2020-01-18 23:36:30 INFO: Heater is switched on
+2020-01-18 23:36:35 INFO: Mainlight is switched off
+2020-01-18 23:36:35 INFO: CO2 is switched off
+2020-01-18 23:36:35 INFO: Heater is switched on
+2020-01-18 23:36:40 INFO: Mainlight is switched off
+2020-01-18 23:36:40 INFO: CO2 is switched off
+2020-01-18 23:36:40 INFO: Heater is switched on
+2020-01-18 23:36:40 INFO: Checking for new Input file.
+2020-01-18 23:36:40 INFO: Inputfile updated!
+2020-01-18 23:36:45 INFO: Mainlight is switched off
+2020-01-18 23:36:45 INFO: CO2 is switched off
+2020-01-18 23:36:45 INFO: Heater is switched off
+2020-01-18 23:36:50 INFO: Mainlight is switched off
+2020-01-18 23:36:50 INFO: CO2 is switched off
+2020-01-18 23:36:50 INFO: Heater is switched off
+2020-01-18 23:36:55 INFO: Mainlight is switched off
+2020-01-18 23:36:55 INFO: CO2 is switched off
+2020-01-18 23:36:55 INFO: Heater is switched off
+2020-01-18 23:37:00 INFO: Mainlight is switched off
+2020-01-18 23:37:00 INFO: CO2 is switched off
+2020-01-18 23:37:00 INFO: Heater is switched off
+2020-01-18 23:37:05 INFO: Mainlight is switched off
+2020-01-18 23:37:05 INFO: CO2 is switched off
+2020-01-18 23:37:05 INFO: Heater is switched off
+2020-01-18 23:37:05 INFO: Checking for new Input file.
+2020-01-18 23:37:10 INFO: Mainlight is switched off
+2020-01-18 23:37:10 INFO: CO2 is switched off
+2020-01-18 23:37:10 INFO: Heater is switched off
+2020-01-18 23:37:15 INFO: Mainlight is switched off
+2020-01-18 23:37:15 INFO: CO2 is switched off
+2020-01-18 23:37:15 INFO: Heater is switched off
+2020-01-18 23:37:20 INFO: Mainlight is switched off
+2020-01-18 23:37:20 INFO: CO2 is switched off
+2020-01-18 23:37:20 INFO: Heater is switched off
+2020-01-18 23:37:25 INFO: Mainlight is switched off
+2020-01-18 23:37:25 INFO: CO2 is switched off
+2020-01-18 23:37:25 INFO: Heater is switched off
+2020-01-18 23:37:30 INFO: Mainlight is switched off
+2020-01-18 23:37:30 INFO: CO2 is switched off
+2020-01-18 23:37:31 INFO: Heater is switched off
+2020-01-18 23:37:31 INFO: Checking for new Input file.
+2020-01-18 23:37:36 INFO: Mainlight is switched off
+2020-01-18 23:37:36 INFO: CO2 is switched off
+2020-01-18 23:37:36 INFO: Heater is switched off
+2020-01-18 23:37:41 INFO: Mainlight is switched off
+2020-01-18 23:37:41 INFO: CO2 is switched off
+2020-01-18 23:37:41 INFO: Heater is switched off
+2020-01-18 23:37:46 INFO: Mainlight is switched off
+2020-01-18 23:37:46 INFO: CO2 is switched off
+2020-01-18 23:37:46 INFO: Heater is switched off
+2020-01-18 23:37:51 INFO: Mainlight is switched off
+2020-01-18 23:37:51 INFO: CO2 is switched off
+2020-01-18 23:37:51 INFO: Heater is switched off
+2020-01-18 23:37:56 INFO: Mainlight is switched off
+2020-01-18 23:37:56 INFO: CO2 is switched off
+2020-01-18 23:37:56 INFO: Heater is switched off
+2020-01-18 23:37:56 INFO: Checking for new Input file.
+2020-01-18 23:38:01 INFO: Mainlight is switched off
+2020-01-18 23:38:01 INFO: CO2 is switched off
+2020-01-18 23:38:01 INFO: Heater is switched off
+2020-01-18 23:38:49 INFO: Server-RaspberryAQ Started!
+2020-01-18 23:38:54 INFO: Inputfile imported
+2020-01-18 23:38:54 INFO: Mainlight is switched off
+2020-01-18 23:38:54 INFO: CO2 is switched off
+2020-01-18 23:38:54 INFO: Heater is switched off
+2020-01-18 23:38:54 INFO: Checking for new Input file.
+2020-01-18 23:38:59 INFO: Mainlight is switched off
+2020-01-18 23:38:59 INFO: CO2 is switched off
+2020-01-18 23:38:59 INFO: Heater is switched off
+2020-01-18 23:39:04 INFO: Mainlight is switched off
+2020-01-18 23:39:04 INFO: CO2 is switched off
+2020-01-18 23:39:04 INFO: Heater is switched off
+2020-01-18 23:39:09 INFO: Mainlight is switched off
+2020-01-18 23:39:09 INFO: CO2 is switched off
+2020-01-18 23:39:09 INFO: Heater is switched off
+2020-01-18 23:39:14 INFO: Mainlight is switched off
+2020-01-18 23:39:14 INFO: CO2 is switched off
+2020-01-18 23:39:14 INFO: Heater is switched off
+2020-01-18 23:39:19 INFO: Mainlight is switched off
+2020-01-18 23:39:19 INFO: CO2 is switched off
+2020-01-18 23:39:19 INFO: Heater is switched off
+2020-01-18 23:39:19 INFO: Checking for new Input file.
+2020-01-18 23:39:24 INFO: Mainlight is switched off
+2020-01-18 23:39:24 INFO: CO2 is switched off
+2020-01-18 23:39:24 INFO: Heater is switched off

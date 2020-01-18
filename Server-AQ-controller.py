@@ -7,7 +7,7 @@ import logging  # -Enables to write Logfiles
 import json  # -To write/read the data Files
 
 
-aq_temp_sen = 25
+aq_temp_sen = 25.00
 
 # -----Controller-Values
 Controller_ID = "Raps01"
@@ -43,7 +43,7 @@ database = "DBNAME"
 sleeptime = 5
 
 # ----Get conntroller Input
-checkinputfile = 60  # default is 60 / all 5 minutes
+checkinputfile = 5  # default is 60 / all 5 minutes
 
 
 # ---Functions Start
@@ -73,7 +73,7 @@ class bcolors:
 
 
 def load_controller_input(JSONnode):
-    print("Read controller input file")
+    #print("Read controller input file")
 
     inputJSON = open('data/_controller-input.json')
     controllerinput = json.load(inputJSON)
@@ -103,6 +103,8 @@ try:
     aq_co2_off = load_controller_input("aq_co2_off")
     aq_temp = load_controller_input("aq_temp")
     logging.info('Inputfile imported')
+
+    aq_temp = float(aq_temp)
 
 
 except:
@@ -157,23 +159,7 @@ while True:
         aq_heater_status = "Off"
         logging.info('Heater is switched off')        
 
-# ---Check for new input file
-    if(loopcounterinput >= checkinputfile):
-        print("Check for new Input file")
-        logging.info('Checking for new Input file.')
-        inputtime = load_controller_input("timestamp")
 
-        if(datetime.strptime(inputtime, "%d.%m.%Y %H:%M:%S") > datetime.strptime(lastinputtime, "%d.%m.%Y %H:%M:%S")):
-            aq_main_light_on = load_controller_input("aq_main_light_on")
-            aq_main_light_off = load_controller_input("aq_main_light_off")
-            aq_co2_on = load_controller_input("aq_co2_on")
-            aq_co2_off = load_controller_input("aq_co2_off")
-            aq_temp = load_controller_input("aq_temp")
-            lastinputtime = load_controller_input("timestamp")
-
-            logging.info('Inputfile updated!')
-
-        loopcounterinput = 0
 
 
 # ---Output
@@ -233,6 +219,31 @@ while True:
 
     with open("data/" + logtime + "_data_RaspberryAQ.json", 'w') as f:
         json.dump(data_RaspberryAQ, f)
+
+# ---Check for new input file
+    if(loopcounterinput >= checkinputfile):
+        print("Check for new Input file")
+        logging.info('Checking for new Input file.')
+        try:
+            inputtime = load_controller_input("timestamp")
+        except:
+            print(f"{bcolors.WARNING}Warning: Inputfile couldn't be found!{bcolors.ENDC}")
+            print(f"{bcolors.WARNING}Running with old config.{bcolors.ENDC}")
+            logging.warning("Data: Inputfile couldn't be found!")
+
+        if(datetime.strptime(inputtime, "%d.%m.%Y %H:%M:%S") > datetime.strptime(lastinputtime, "%d.%m.%Y %H:%M:%S")):
+            aq_main_light_on = load_controller_input("aq_main_light_on")
+            aq_main_light_off = load_controller_input("aq_main_light_off")
+            aq_co2_on = load_controller_input("aq_co2_on")
+            aq_co2_off = load_controller_input("aq_co2_off")
+            aq_temp = load_controller_input("aq_temp")
+            aq_temp = float(aq_temp)
+            lastinputtime = load_controller_input("timestamp")
+
+            print(f"{bcolors.OKGREEN}Inputfile updated!{bcolors.ENDC}")
+            logging.info('Inputfile updated!')
+
+        loopcounterinput = 0
 
 # ---Loop counters
     loopcounterinput = loopcounterinput + 1
