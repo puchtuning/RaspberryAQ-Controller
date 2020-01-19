@@ -29,9 +29,7 @@ def is_not_blank(mystring, length):
 
 
 # ---Click Funktionen
-def clicked():
-    res = "Entry: " + txt1.get()  # --Liest den Text aus dem txt1 aus
-    lbl2.configure(text=res)
+
 
 
 def clickecancel():
@@ -88,7 +86,7 @@ window = Tk()  # --Startet Tkinter als window
 
 
 window.title("RaspberryAQ GUI")  # --Titel des Fensters
-window.geometry('700x600')  # --Definiert die Fenstergroesse
+window.geometry('600x500')  # --Definiert die Fenstergroesse
 
 tab_control = ttk.Notebook(window)
 
@@ -102,21 +100,15 @@ tab_control.pack(expand=1, fill='both')
 
 # --- Tab Dashboard
 
-lbl1 = Label(tab1, text="RaspberryAQ Dashboard",
-             font=("Arial Bold", 20))  # --Definiert ein Textlable
+lbl1 = Label(tab1, text="RaspberryAQ Dashboard", font=("Arial Bold", 20))  # --Definiert ein Textlable
 lbl1.grid(column=0, row=0)  # --Definiert die Position des Textlabels
-lbl2 = Label(tab1, text="", font=("Arial Bold", 20))
+lbl2 = Label(tab1, text="Coming soon.....:)", font=("Arial Bold", 10))
 lbl2.grid(column=0, row=2)
 
-# --Defiiniert ein Eingabefeld/ mit State kann man das Texfeld aktivieren oder deaktivieren
-txt1 = Entry(tab1, width=10, state='normal')
-txt1.focus()  # --Setzt den Curser direkt in das Texfeld
-txt1.grid(column=0, row=1)
 
 
-btn1 = Button(tab1, text="Datenladen", bg="gray", fg="White",
-              command=clicked)  # --Definiert ein Button
-btn1.grid(column=1, row=2)  # --Definiert die Position des Buttons
+
+
 
 # --- Tab Admin
 lbladmin1 = Label(tab2, text="RaspberryAQ Admin", font=("Arial Bold", 20))
