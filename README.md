@@ -113,12 +113,16 @@ Then you will be greeted, with a file in wich you can edit your values as you li
 After you changed the values, you can save the file and close it.
 
 ### Starting the Server
-
-Explain what these tests test and why
-
+First open the commandline and copy and paste the following commands.
+The second command starts the Server, wich controls the all the things.
+```bash
+cd ~/RraspberryAQ-Controller/
+python3 Server-AQ-controller.py
 ```
-Give an example
-```
+The Server creats a useful terminal outubt to show you whats going on.
+Additionally the server creates logfiles and datafiles wich can be used ton display the informations on a webpage.
+The data files get used by the GUI to display the informations.
+
 
 ## Deployment
 
@@ -140,7 +144,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Pascal alias puchtuning** - *Initial work* - [puchtuning](https://github.com/puchtuning)
+* **Pascal** - *Initial work* - [puchtuning](https://github.com/puchtuning)
 
 
 ## License
@@ -151,5 +155,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * The Ben Hack Show
 * [ReefSpy with the ReefberryPi](https://www.youtube.com/channel/UCvuGXFKFf4DIs2AD7Gjc_Kw)
+
+## Disclaimer
+The creators of the NodeAQ controller software take no liability for any damage or injury. When dealing with mains voltages, we advise you to contact a specialist.
+
 
 
