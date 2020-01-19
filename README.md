@@ -6,14 +6,14 @@ Then currently im not a sofware engineer.
 
 ## Getting Started
 
-This controller is based on the programming language python and does currently just use one libary that has to be installed.
+This controller is based on the programming language python (V3.7) and does currently just use one libary that has to be installed.
 But no worries i got an easy installscript ready for you.
-Its setup to control a mainlight based on time, a CO2 solanoid based on time and controll your heater with the help of a DS18B20
+Its setup to control a mainlight based on time, a CO2 solanoid based on time and your heater with the help of a DS18B20
 temprature sensor.
 
 ### Hardware
 #### RaspberryPi
-The controller software is tested on the following hardware:
+The controller software was tested on the following hardware:
 * Raspberry Pi 4B 4GB
 
 The controller software is going to be testet on the following hardware:
