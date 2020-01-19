@@ -81,7 +81,7 @@ If not you can read the topic **Configure per commandline** to learn how to setu
 First open the commandline and copy and paste the following commands.
 The second command starts the GUI.
 ```bash
-cd ~/RraspberryAQ-Controller/
+cd ~/RaspberryAQ-Controller/
 python3 GUI-AQ-controller.py
 ```
 In the GUI you can choose on wich times and temperatures your controller should perform wich task.
