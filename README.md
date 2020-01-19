@@ -119,14 +119,21 @@ The second command starts the Server, wich controls the all the things.
 cd ~/RraspberryAQ-Controller/
 python3 Server-AQ-controller.py
 ```
-The Server creats a useful terminal outubt to show you whats going on.
+The Server creats a useful terminal output to show you whats going on.
 Additionally the server creates logfiles and datafiles wich can be used ton display the informations on a webpage.
 The data files get used by the GUI to display the informations.
 
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+To ensure that your RaspberryAQ-Controller is always starting with your Pi you need to add the Server into the crontab.
+```bash
+crontab -e
+```
+Add the following line to the bottom of the file and save it.
+```bash
+@reboot sleep 60 && cd RraspberryAQ-Controller/ && /usr/bin/python3.7 Server-AQ-controller.py
+```
 
 ## Built With
 
