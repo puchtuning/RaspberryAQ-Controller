@@ -74,7 +74,7 @@ We are working on a solution for that.
 Before yout can run any test, its important to connect yout temprature sensor.
 Otherwise the cotroller just spits out errors.
 
-### Rnning the GUI
+### Running the GUI
 If you have installed a Raspbian version with desktop you can proceed with this step.
 If not you can read the topic **Configure per commandline** to learn how to setup your RaspberryAQ-Controller.
 
@@ -86,7 +86,7 @@ python3 GUI-AQ-controller.py
 ```
 In the GUI you can choose on wich times and temperatures your controller should perform wich task.
 The timeformat is in european time: 08:00 AM = 20:00
-When you 
+When all values right set, you car save the configfile an close the GUI Window.
 
 The GUI is currently under construction and will be updated over time.
 
@@ -110,9 +110,9 @@ Then you will be greeted, with a file in wich you can edit your values as you li
 }
 ```
 **The timeformat is in european time: 08:00 AM = 20:00**
+After you changed the values, you can save the file and close it.
 
-
-### And coding style tests
+### Starting the Server
 
 Explain what these tests test and why
 
