@@ -74,7 +74,7 @@ We are working on a solution for that.
 Before yout can run any test, its important to connect yout temprature sensor.
 Otherwise the cotroller just spits out errors.
 
-### Running the GUI
+### Configure per GUI
 If you have installed a Raspbian version with desktop you can proceed with this step.
 If not you can read the topic **Configure per commandline** to learn how to setup your RaspberryAQ-Controller.
 
