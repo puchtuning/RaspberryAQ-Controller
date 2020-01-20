@@ -36,6 +36,7 @@ logging.info('GUI-RaspberryAQ Started!')
 
 #--- Click Funktionen
 def clickecancel():
+    logging.info('GUI-RaspberryAQ has been cosed.')
     app.destroy()
 
 #--- Check for Blanks
@@ -45,8 +46,6 @@ def is_not_blank(mystring, length):
     else:
         # Erstellt einen Error der durch die try Funktion gewertet erden kann
         raise ValueError('No Value specified')
-
-
     
 #--- Starting Admin menu
 def clickedadmin():
