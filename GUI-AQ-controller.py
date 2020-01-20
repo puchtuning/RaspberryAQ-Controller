@@ -208,7 +208,7 @@ framebtn.place(relx=0.1, rely=0.85, relwidth=0.8, relheight=0.1)
 btnadmin = tk.Button(framebtn, text="Configure", bg="gray", fg="White", font=H2, command=clickedadmin)  # --Definiert ein Button
 btnadmin.place(relwidth=0.49, relheight=1)  # --Definiert die Position des Buttons
 
-btncancel = tk.Button(framebtn, text="Cancel", bg="gray", fg="White", font=H2, command=clickecancel)  # --Definiert ein Button
+btncancel = tk.Button(framebtn, text="Close", bg="gray", fg="White", font=H2, command=clickecancel)  # --Definiert ein Button
 btncancel.place(relx=0.5, relwidth=0.49, relheight=1)  # --Definiert die Position des Buttons
 
 
