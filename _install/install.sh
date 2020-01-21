@@ -1,24 +1,48 @@
 #!/bin/bash
 
+LOCCONF='./config.txt'
+LOCMODULES='./modules'
+
+
+CONFIGVAL1='dtoverlay=w1-gpio'
+CONFIGVAL2='w1_gpio'
+CONFIGVAL3='w1_therm'
+
+
+CHECKFILE=$(grep 'dtoverlay=w1-gpio' $LOCCONF)
 
 echo "Setup 1-Wire bus for Temprature"
 modprobe w1-gpio
 modprobe w1-therm
 
-echo "" >> /boot/config.txt
-echo "#enables ds1850 temp reads" >> /boot/config.txt
-echo "dtoverlay=w1-gpio" >> /boot/config.txt
-#echo "dtoverlay=w1-gpio,gpioin=4,pullup=on" >> /boot/config.txt
 
-echo "" >> /etc/modules
-echo "w1_gpio" >> /etc/modules
-echo "w1_therm" >> /etc/modules
+if [ "$CHECKFILE" == "$CONFIGVAL1" ]
+then
+    echo "config.txt is already setup"
+else
+    echo "" >> $LOCCONF
+    echo "#enables ds1850 temp reads" >> $LOCCONF
+    echo "dtoverlay=w1-gpio" >> $LOCCONF
+    echo "config.txt is setup"
+fi
+
+CHECKFILE=$(grep 'w1_gpio' $LOCMODULES)
+
+if [ "$CHECKFILE" == "$CONFIGVAL2" ]
+then
+    echo "mudules is already setup"
+else
+    echo "" >> $LOCMODULES
+    echo "w1_gpio" >> $LOCMODULES
+    echo "w1_therm" >> $LOCMODULES
+    echo "mudules setup is written "
+fi
+
 
 echo "Installing libarys"
 
 pip3 install -r requirements.txt
 
+read -p "Press enter to continue"
 
-echo "Press any key to reboot:"
-
-reboot
+shutdown -r now
