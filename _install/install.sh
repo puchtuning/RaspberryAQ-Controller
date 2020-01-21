@@ -1,7 +1,7 @@
 #!/bin/bash
 
-LOCCONF='./config.txt'
-LOCMODULES='./modules'
+LOCCONF='/boot/config.txt'
+LOCMODULES='/etc/modules'
 
 
 CONFIGVAL1='dtoverlay=w1-gpio'
