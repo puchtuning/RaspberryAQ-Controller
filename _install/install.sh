@@ -43,6 +43,6 @@ echo "Installing libarys"
 
 pip3 install -r requirements.txt
 
-read -p "Press enter to continue"
+read -p "Press enter to reboot"
 
 shutdown -r now
