@@ -225,11 +225,13 @@ while True:
 
             mycursor = mydb.cursor()
 
-            sql = "INSERT INTO aq_controller (Controller_ID, aq_timestamp, aq_mainlight, aq_temp, aq_heater) VALUES (%s, %s, %s, %s, %s)"
-            val = (Controller_ID,  fulltime, aq_main_light_status, "0", "Off")
+            sql = "INSERT INTO aq_controller (Controller_ID, aq_timestamp, aq_mainlight, aq_temp, aq_heater, aq_co2_dosing) VALUES (%s, %s, %s, %s, %s, %s)"
+            val = (Controller_ID,  fulltime, aq_main_light_status, aq_temp_sen, aq_heater_status, aq_co2_status)
             mycursor.execute(sql, val)
             mydb.commit()
-            print(mycursor.rowcount, "record inserted.")
+
+            print(f"{bcolors.OKGREEN}Values are written to MYSQL Database{bcolors.ENDC}")
+            #print(mycursor.rowcount, "record inserted.")
             logging.info("MYSQL: Values are written to MYSQL Database")
 
             mydb.close #Closes the MYSQL Connection
@@ -244,7 +246,11 @@ while True:
 
 # --Data File Output
     data_RaspberryAQ[fulltime] = {
-        "aq_mainlight_status": aq_main_light_status, "aq_co2_status": aq_co2_status, "aq_heater_status": aq_heater_status, "aq_temp_sen": aq_temp_sen}
+        "aq_mainlight_status": aq_main_light_status, 
+        "aq_co2_status": aq_co2_status, 
+        "aq_heater_status": aq_heater_status, 
+        "aq_temp_sen": aq_temp_sen
+        }
 
     with open("data/" + logtime + "_data_RaspberryAQ.json", 'w') as f:
         json.dump(data_RaspberryAQ, f)
