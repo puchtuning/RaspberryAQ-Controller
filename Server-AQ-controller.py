@@ -85,8 +85,7 @@ def load_controller_input(JSONnode):
 
 # --Initialize Logging
 logtime = time.strftime("%Y-%m-%d")
-logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S',
-                    filename="log/" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
+logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S', filename="log/" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
 logging.info('Server-RaspberryAQ Started!')
 print(f"{bcolors.OKGREEN}Server-RaspberryAQ Started!{bcolors.ENDC}")
 time.sleep(5)
@@ -123,12 +122,16 @@ Controller_RaspberryAQ = {}
 
 # --Functions Ende
 
+
+# --Read Input File
 try:
     aq_main_light_on = load_controller_input("aq_main_light_on")
     aq_main_light_off = load_controller_input("aq_main_light_off")
     aq_co2_on = load_controller_input("aq_co2_on")
     aq_co2_off = load_controller_input("aq_co2_off")
     aq_temp = load_controller_input("aq_temp")
+    lastinputtime = load_controller_input("timestamp") #Reads the time at wich the inputfile was saved
+
     logging.info('Inputfile imported')
 
     aq_temp = float(aq_temp)
@@ -140,8 +143,8 @@ except:
     logging.warning("Data: Inputfile couldn't be found!")
     exit()
 
-# Reads the time at wich the inputfile was saved
-lastinputtime = load_controller_input("timestamp")
+
+
 
 
 while True:
