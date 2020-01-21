@@ -60,14 +60,12 @@ cd ~
 git clone https://github.com/puchtuning/RaspberryAQ-Controller.git
 ```
 
-Now you can install the software with our install script.
+Now you can install the software with our install script. The script will check what is installed and install the missing components.
 This script will automatically reboot your system, after its done installing.
 ```bash
 cd RaspberryAQ-Controller/_install/
 sudo bash install.sh
 ```
-**Make sure to run this script just once! Otherwise it corrupts your files.**
-We are working on a solution for that.
 
 
 ## Running the RaspberryAQ-Controller
