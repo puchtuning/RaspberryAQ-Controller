@@ -1,1 +1,10 @@
-{"Controller-input": {"timestamp": "20.01.2020 22:17:51", "aq_main_light_on": "20:00", "aq_main_light_off": "20:00", "aq_co2_on": "20:00", "aq_co2_off": "20:00", "aq_temp": "20"}}
+{
+    "Controller-input": {
+        "timestamp": "22.01.2020 13:27:09",
+        "aq_main_light_on": "11:00",
+        "aq_main_light_off": "21:00",
+        "aq_co2_on": "11:00",
+        "aq_co2_off": "21:00",
+        "aq_temp": "25"
+    }
+}
