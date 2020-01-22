@@ -24,12 +24,21 @@ BGFRAME = '#00DDFF'
 #--- Starting Admin menu
 def adminpage():
 
+    #---Opens window
+    appadmin = tk.Toplevel()
+    appadmin.title("Admin GUI")
+
+    checkbtnval = tk.IntVar()
+
     def saveconfigfile():
         aq_main_light_on = txtadminl1.get()  # --Liest den Text aus dem txt1 aus
         aq_main_light_off = txtadminl2.get()
         aq_co2_on = txtadminc1.get()
         aq_co2_off = txtadminc2.get()
         aq_temp = spinadmint1.get()
+        useMYSQL = bool(checkbtnval.get())
+
+
         
 
         try:
@@ -38,6 +47,31 @@ def adminpage():
             GUISAVE.is_not_blank(aq_co2_on, 5)
             GUISAVE.is_not_blank(aq_co2_off, 5)
             GUISAVE.is_not_blank(aq_temp, 2)
+
+            
+            
+            
+            if(useMYSQL == True):
+                HOST = txtmysql1.get() 
+                DBNAME = txtmysql2.get() 
+                USERNAME = txtmysql3.get() 
+                PASSWD = txtmysql4.get()
+                CONTROLLERID = txtmysql5.get()
+
+                mysqlinput = {
+                    "useMYSQL": useMYSQL,
+                    "HOST": HOST,
+                    "DBNAME": DBNAME,
+                    "USERNAME": USERNAME, 
+                    "PASSWD": PASSWD,
+                    "CONTROLLERID": CONTROLLERID
+                }
+            else:
+                mysqlinput ={
+                    "useMYSQL": useMYSQL
+                }   
+
+            print(useMYSQL)            
 
             timestamp = time.strftime("%d.%m.%Y %H:%M:%S")
 
@@ -50,7 +84,8 @@ def adminpage():
                 "aq_main_light_off": aq_main_light_off,
                 "aq_co2_on": aq_co2_on,
                 "aq_co2_off": aq_co2_off,
-                "aq_temp": aq_temp
+                "aq_temp": aq_temp,
+                "MYSQL": mysqlinput
             }
 
             with open("../data/_controller-input.json", 'w') as f:
@@ -69,9 +104,7 @@ def adminpage():
             messagebox.showerror('Error: Falsche Werte', 'Eingabe Überprüfen')
 
 
-#---Opens window
-    appadmin = tk.Toplevel()
-    appadmin.title("Admin GUI")
+
 
 #---Tab control
     tab_control = ttk.Notebook(appadmin)
@@ -150,7 +183,7 @@ def adminpage():
     btncancel.place(relx=0.5, relwidth=0.49, relheight=1)  # --Definiert die Position des Buttons
 
 
-#---Tab 2 Values
+#---Tab 2 MYSQL
 
     canvas = tk.Canvas(tab2, height=HEIGHT, width=WIDTH, bg='gray')
     canvas.pack()
@@ -172,36 +205,34 @@ def adminpage():
     frameright.pack(side='right', fill='both', padx=5, pady=5, expand=True)
     
 
-    tk.Label(frameleft, anchor='w', text="Licht", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
-    tk.Label(frameleft, anchor='w', text="Einschaltzeit (z.B. 08:00):", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
-    tk.Label(frameleft, anchor='w', text="Ausschaltzeit (z.B. 22:00):", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
+    
+    checkbtn = tk.Checkbutton(frameleft, text="Use MYSQL connector", variable=checkbtnval, offvalue=0, onvalue=1, bg=BGFRAME, font=H2)
+    checkbtn.pack(padx=5, pady=5, fill='x')
+    tk.Label(frameleft, anchor='w', text="MYSQL Host:", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
+    tk.Label(frameleft, anchor='w', text="Database Name:", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')    
+    tk.Label(frameleft, anchor='w', text="Username:", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
+    tk.Label(frameleft, anchor='w', text="Password:", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
+    tk.Label(frameleft, anchor='w', text="Controller ID:", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
 
-    tk.Label(frameleft, anchor='w', text="CO2", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
-    tk.Label(frameleft, anchor='w', text="Einschaltzeit (z.B. 08:00):", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
-    tk.Label(frameleft, anchor='w', text="Ausschaltzeit (z.B. 22:00):", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
+    
+    
 
-    tk.Label(frameleft, anchor='w', text="Temperatur", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
-    tk.Label(frameleft, anchor='w', text="Wunschtemperatur (z.B. 25):", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
+    filler1 = tk.Label(frameright, text="", bg=BGFRAME, font=("Roboto", 25))
+    txtmysql1 = tk.Entry(frameright, width=15, state='normal', font=H2)
+    txtmysql2 = tk.Entry(frameright, width=15, state='normal', font=H2)    
+    txtmysql3 = tk.Entry(frameright, width=15, state='normal', font=H2)
+    txtmysql4 = tk.Entry(frameright, width=15, state='normal', font=H2)
+    txtmysql5 = tk.Entry(frameright, width=15, state='normal', font=H2)
 
-    filler1 = tk.Label(frameright, text="", bg=BGFRAME, font=("Roboto", 18))
-    txtadminl1 = tk.Entry(frameright, width=15, state='normal', font=H2)
-    txtadminl2 = tk.Entry(frameright, width=15, state='normal', font=H2)
-
-    filler2 = tk.Label(frameright, text="", bg=BGFRAME, font=("Roboto", 20))
-    txtadminc1 = tk.Entry(frameright, width=15, state='normal', font=H2)
-    txtadminc2 = tk.Entry(frameright, width=15, state='normal', font=H2)
-
-    filler3 = tk.Label(frameright, text="", bg=BGFRAME, font=("Roboto", 19))
-    spinadmint1 = tk.Spinbox(frameright, from_=15, to=40, width=5, font=H2)
+    
 
     filler1.pack(padx=5, pady=5) #Filler
-    txtadminl1.pack(padx=5, pady=5, fill='x')
-    txtadminl2.pack(padx=5, pady=5, fill='x')
-    filler2.pack(padx=5, pady=5) #Filler
-    txtadminc1.pack(padx=5, pady=5, fill='x')
-    txtadminc2.pack(padx=5, pady=5, fill='x')
-    filler3.pack(padx=5, pady=5) #Filler
-    spinadmint1.pack(padx=5, pady=5, fill='x')
+    txtmysql1.pack(padx=5, pady=5, fill='x')
+    txtmysql2.pack(padx=5, pady=5, fill='x')    
+    txtmysql3.pack(padx=5, pady=5, fill='x')
+    txtmysql4.pack(padx=5, pady=5, fill='x')
+    txtmysql5.pack(padx=5, pady=5, fill='x')
+
 
     ##--- Buttons
 
