@@ -8,7 +8,6 @@ import time
 import json
 import logging
 
-
 WIDTH = 800
 HEIGHT = 600
 
