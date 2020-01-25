@@ -7,7 +7,7 @@ import mysql.connector  # -Enables connection to MYSQL Database
 import logging  # -Enables to write Logfiles
 import json  # -To write/read the data Files
 
-
+#test.py
 
 
 # -----Controller-Values
