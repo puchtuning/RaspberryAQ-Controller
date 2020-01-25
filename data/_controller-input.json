@@ -1,9 +1,9 @@
 {
     "Controller-input": {
-        "timestamp": "23.01.2020 00:21:57",
-        "aq_main_light_on": "11:00",
+        "timestamp": "25.01.2020 14:50:52",
+        "aq_main_light_on": "10:00",
         "aq_main_light_off": "21:00",
-        "aq_co2_on": "10:00",
+        "aq_co2_on": "11:00",
         "aq_co2_off": "21:00",
         "aq_temp": "24",
         "MYSQL": {
@@ -11,8 +11,8 @@
             "HOST": "192.168.0.103",
             "DBNAME": "Aquarium",
             "USERNAME": "aq_controller",
-            "PASSWD": "6010Kriens$",
-            "CONTROLLERID": "Rasp01"
+            "PASSWD": "test",
+            "CONTROLLERID": "test"
         }
     }
 }
