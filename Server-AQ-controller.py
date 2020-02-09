@@ -7,11 +7,6 @@ import mysql.connector  # -Enables connection to MYSQL Database
 import logging  # -Enables to write Logfiles
 import json  # -To write/read the data Files
 
-#test.py
-
-
-# -----Controller-Values
-Controller_ID = "Raps01"
 
 # ----Pinsetup (use BOARD pinaout)
 extra_relay = 32
@@ -19,24 +14,8 @@ heater_relay = 36
 mainlight_relay = 38
 co2_relay = 40
 
-
-
-#Test
-
-
-
 # -----mysql-connection infos
-useMYSQL = False # False = not in use / True = in use
 writetomysql = 180 # default is 180 / all 15 minutes
-host = "MYSQLHOSTNAME"
-user = "USERNAME"
-passwd = "PASSWORT"
-database = "DBNAME"
-
-
-
-
-
 
 
 # ---Write-Frequency
@@ -82,6 +61,15 @@ def load_controller_input(JSONnode):
 
     return(str(JSONnode))
 
+def load_controller_mysql(JSONnode):
+    #print("Read controller input file")
+
+    inputJSON = open('data/_controller-input.json')
+    controllerinput = json.load(inputJSON)
+    JSONnode = controllerinput['Controller-input']['MYSQL'][JSONnode]
+
+    return(str(JSONnode))
+
 
 # --Initialize Logging
 logtime = time.strftime("%Y-%m-%d")
@@ -97,6 +85,7 @@ os.system('modprobe w1-therm')
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
+
 
 def read_temp_raw():
         f = open(device_file, 'r')
@@ -115,6 +104,12 @@ def read_temp():
                 temp_c = float(temp_string) / 1000.0
                 return temp_c
 
+"""
+# For debug
+def read_temp():
+    temp_c = 25.00
+    return temp_c
+"""
 
 # --Initialize JSON
 data_RaspberryAQ = {}
@@ -136,6 +131,19 @@ try:
 
     aq_temp = float(aq_temp)
 
+# --Reads the MYSQL Information
+    useMYSQL = load_controller_mysql("useMYSQL")
+    if(useMYSQL == 'True'):
+        host = load_controller_mysql("HOST")
+        user = load_controller_mysql("USERNAME")
+        passwd = load_controller_mysql("PASSWD")
+        database = load_controller_mysql("DBNAME")
+        Controller_ID = load_controller_mysql("CONTROLLERID")
+        logging.info('MYSQL Infos imported')
+        print(f"{bcolors.OKGREEN}MYSQL Infos imported{bcolors.ENDC}")
+
+
+
 
 except:
     print(f"{bcolors.WARNING}Warning: Inputfile couldn't be found!{bcolors.ENDC}")
@@ -149,7 +157,7 @@ except:
 
 while True:
 
-    # ---Get Times
+# ---Get Times
     daytime = time.strftime("%H:%M")
     date = time.strftime("%d.%m.%Y")
     fulltime = time.strftime("%d.%m.%Y %H:%M:%S")
@@ -217,7 +225,7 @@ while True:
 
 # --SQL output
 
-    if(useMYSQL == True and loopcountermysql >= writetomysql):
+    if(useMYSQL == 'True' and loopcountermysql >= writetomysql):
         try:
             mydb = mysql.connector.connect( #Opens the MYSQL Connection
                 host=host,
@@ -277,6 +285,16 @@ while True:
             aq_temp = load_controller_input("aq_temp")
             aq_temp = float(aq_temp)
             lastinputtime = load_controller_input("timestamp")
+
+            useMYSQL = load_controller_mysql("useMYSQL")
+            if(useMYSQL == 'True'):
+                host = load_controller_mysql("HOST")
+                user = load_controller_mysql("USERNAME")
+                passwd = load_controller_mysql("PASSWD")
+                database = load_controller_mysql("DBNAME")
+                Controller_ID = load_controller_mysql("CONTROLLERID")
+                logging.info('MYSQL Infos imported')
+                print(f"{bcolors.OKGREEN}MYSQL Infos imported{bcolors.ENDC}")
 
             print(f"{bcolors.OKGREEN}Inputfile updated!{bcolors.ENDC}")
             logging.info('Inputfile updated!')
