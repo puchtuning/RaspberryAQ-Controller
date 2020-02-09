@@ -104,6 +104,19 @@ def adminpage():
             messagebox.showerror('Error: Falsche Werte', 'Eingabe Überprüfen')
 
 
+    def activateCheck():
+        if (checkbtnval.get() == 1):
+            txtmysql1.config(state='normal')
+            txtmysql2.config(state='normal')  
+            txtmysql3.config(state='normal')
+            txtmysql4.config(state='normal')
+            txtmysql5.config(state='normal')
+        elif (checkbtnval.get() == 0):
+            txtmysql1.config(state='disabled')
+            txtmysql2.config(state='disabled')
+            txtmysql3.config(state='disabled')
+            txtmysql4.config(state='disabled')
+            txtmysql5.config(state='disabled')
 
 
 #---Tab control
@@ -206,7 +219,7 @@ def adminpage():
     
 
     
-    checkbtn = tk.Checkbutton(frameleft, text="Use MYSQL connector", variable=checkbtnval, offvalue=0, onvalue=1, bg=BGFRAME, font=H2)
+    checkbtn = tk.Checkbutton(frameleft, text="Use MYSQL connector", variable=checkbtnval, command=activateCheck, offvalue=0, onvalue=1, bg=BGFRAME, font=H2)
     checkbtn.pack(padx=5, pady=5, fill='x')
     tk.Label(frameleft, anchor='w', text="MYSQL Host:", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')
     tk.Label(frameleft, anchor='w', text="Database Name:", bg=BGFRAME, font=H2).pack(padx=5, pady=5, fill='x')    

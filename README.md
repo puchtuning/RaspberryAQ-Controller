@@ -104,7 +104,7 @@ Then you will be greeted, with a file in wich you can edit your values as you li
         "aq_co2_off": "21:00",
         "aq_temp": "24",
         "MYSQL": {
-            "useMYSQL": false, //set to true, if you want to use a MYSQL Database
+            "useMYSQL": false, 
             "HOST": "MYSQL_HOST",
             "DBNAME": "MYSQL_DATABASE",
             "USERNAME": "MYSQL_USER", 
