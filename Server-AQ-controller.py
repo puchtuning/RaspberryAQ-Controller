@@ -70,6 +70,11 @@ def load_controller_mysql(JSONnode):
 
     return(str(JSONnode))
 
+# --Write JSON
+def write_json(data, filename):
+    with open(filename, 'w') as f:
+        json.dump(data, f, indent=4)
+
 
 # --Initialize Logging
 logtime = time.strftime("%Y-%m-%d")
@@ -82,6 +87,7 @@ time.sleep(5)
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
+"""
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
@@ -105,15 +111,15 @@ def read_temp():
                 return temp_c
 
 """
-# For debug
+# For debug without temp sensor
 def read_temp():
     temp_c = 25.00
     return temp_c
-"""
 
-# --Initialize JSON
-data_RaspberryAQ = {}
-Controller_RaspberryAQ = {}
+
+# --Initialize JSON structure
+#data_RaspberryAQ = {}
+# Controller_RaspberryAQ = {}
 
 # --Functions Ende
 
@@ -160,6 +166,7 @@ while True:
 # ---Get Times
     daytime = time.strftime("%H:%M")
     date = time.strftime("%d.%m.%Y")
+    datatime = time.strftime("%Y-%m-%d")
     fulltime = time.strftime("%d.%m.%Y %H:%M:%S")
 
 
@@ -256,15 +263,43 @@ while True:
         loopcountermysql = 0
 
 # --Data File Output
-    data_RaspberryAQ[fulltime] = {
-        "aq_mainlight_status": aq_main_light_status, 
-        "aq_co2_status": aq_co2_status, 
-        "aq_heater_status": aq_heater_status, 
-        "aq_temp_sen": aq_temp_sen
-        }
 
-    with open("data/" + logtime + "_data_RaspberryAQ.json", 'w') as f:
-        json.dump(data_RaspberryAQ, f)
+
+
+    with open("data/" + datatime + "_data_RaspberryAQ.json") as json_file:
+        data = json.load(json_file)
+        temp = data['data']
+
+        data_RaspberryAQ = {
+            "timestamp": fulltime,
+            "aq_mainlight_status": aq_main_light_status, 
+            "aq_co2_status": aq_co2_status, 
+            "aq_heater_status": aq_heater_status, 
+            "aq_temp_sen": aq_temp_sen
+            }
+
+        temp.append(data_RaspberryAQ)
+    
+    write_json(data, "data/" + datatime + "_data_RaspberryAQ.json")
+
+    """
+
+    with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
+        data = json.load(json_file)
+        temp = data['data']
+
+        data_RaspberryAQ = {
+            "timestamp": fulltime,
+            "aq_mainlight_status": aq_main_light_status, 
+            "aq_co2_status": aq_co2_status, 
+            "aq_heater_status": aq_heater_status, 
+            "aq_temp_sen": aq_temp_sen
+            }
+
+        temp.append(data_RaspberryAQ
+        json.dump(data, f, indent=4)
+
+    """
 
 # ---Check for new input file
     if(loopcounterinput >= checkinputfile):
