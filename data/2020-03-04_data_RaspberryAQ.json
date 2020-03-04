@@ -55,6 +55,27 @@
             "aq_mainlight_status": "Off",
             "aq_temp_sen": 25.0,
             "timestamp": "04.03.2020 01:23:54"
+        },
+        {
+            "aq_co2_status": "On",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "On",
+            "aq_temp_sen": 25.0,
+            "timestamp": "04.03.2020 14:10:57"
+        },
+        {
+            "aq_co2_status": "On",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "On",
+            "aq_temp_sen": 25.0,
+            "timestamp": "04.03.2020 14:11:02"
+        },
+        {
+            "aq_co2_status": "On",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "On",
+            "aq_temp_sen": 25.0,
+            "timestamp": "04.03.2020 14:13:10"
         }
     ]
 }

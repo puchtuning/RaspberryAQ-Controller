@@ -716,3 +716,18 @@
 2020-03-04 01:23:54 INFO: Mainlight is switched off
 2020-03-04 01:23:54 INFO: CO2 is switched off
 2020-03-04 01:23:54 INFO: Heater is switched off
+2020-03-04 14:10:52 INFO: Server-RaspberryAQ Started!
+2020-03-04 14:10:57 INFO: Inputfile imported
+2020-03-04 14:10:57 INFO: Mainlight is switched on
+2020-03-04 14:10:57 INFO: CO2 is switched on
+2020-03-04 14:10:57 INFO: Heater is switched off
+2020-03-04 14:10:57 INFO: Checking for new Input file.
+2020-03-04 14:11:02 INFO: Mainlight is switched on
+2020-03-04 14:11:02 INFO: CO2 is switched on
+2020-03-04 14:11:02 INFO: Heater is switched off
+2020-03-04 14:13:05 INFO: Server-RaspberryAQ Started!
+2020-03-04 14:13:10 INFO: Inputfile imported
+2020-03-04 14:13:10 INFO: Mainlight is switched on
+2020-03-04 14:13:10 INFO: CO2 is switched on
+2020-03-04 14:13:10 INFO: Heater is switched off
+2020-03-04 14:13:10 INFO: Checking for new Input file.

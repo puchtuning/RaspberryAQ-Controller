@@ -285,7 +285,7 @@ while True:
         JSONnode = controllerinput['data']
 
 
-        print(JSONnode)
+        #print(JSONnode)
         with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
 
 
