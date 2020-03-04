@@ -79,13 +79,14 @@ If not you can read the topic **Configure per commandline** to learn how to setu
 First open the commandline and copy and paste the following commands.
 The second command starts the GUI.
 ```bash
-python3 ~/RaspberryAQ-Controller/GUI-AQ-controller.py
+cd ~/RaspberryAQ-Controller/_GUI/
+python3 GUI-AQ-controller.py
 ```
 In the GUI you can choose on wich times and temperatures your controller should perform wich task.
-The timeformat is in european time: 08:00 PM = 20:00
-When all values right set, you car save the configfile an close the GUI Window.
+The timeformat is in european time: 08:00 PM = 20:00 
 
-The GUI is currently under construction and will be updated over time.
+When all values right set, you can save the configfile an close the GUI Window.
+
 
 ### Configure per commandline
 To configure your controller via commandline, you need to opber de inputfile with the following command.
