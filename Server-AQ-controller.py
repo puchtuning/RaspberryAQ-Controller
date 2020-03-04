@@ -71,9 +71,23 @@ def load_controller_mysql(JSONnode):
     return(str(JSONnode))
 
 # --Write JSON
-def write_json(data, filename):
-    with open(filename, 'w') as f:
-        json.dump(data, f, indent=4)
+def writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_heater_status, aq_temp_sen):
+
+    with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
+
+        data_RaspberryAQ['data'] = [
+            {
+            "timestamp": fulltime,
+            "aq_mainlight_status": aq_main_light_status,
+            "aq_co2_status": aq_co2_status,
+            "aq_heater_status": aq_heater_status,
+            "aq_temp_sen": aq_temp_sen
+            }
+
+        ]
+
+        json.dump(data_RaspberryAQ, f, indent=4, sort_keys=True)
+
 
 
 # --Initialize Logging
@@ -87,7 +101,7 @@ time.sleep(5)
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
-"""
+
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
@@ -115,7 +129,7 @@ def read_temp():
 def read_temp():
     temp_c = 25.00
     return temp_c
-
+"""
 
 # --Initialize JSON structure
 #data_RaspberryAQ = {}
@@ -264,42 +278,37 @@ while True:
 
 # --Data File Output
 
+    # try to Update JSON
+    try:
+        dataJSON = open("data/" + datatime + "_data_RaspberryAQ.json")
+        controllerinput = json.load(dataJSON)
+        JSONnode = controllerinput['data']
 
 
-    with open("data/" + datatime + "_data_RaspberryAQ.json") as json_file:
-        data = json.load(json_file)
-        temp = data['data']
+        print(JSONnode)
+        with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
 
-        data_RaspberryAQ = {
-            "timestamp": fulltime,
-            "aq_mainlight_status": aq_main_light_status, 
-            "aq_co2_status": aq_co2_status, 
-            "aq_heater_status": aq_heater_status, 
-            "aq_temp_sen": aq_temp_sen
+
+
+            data_RaspberryAQ = {
+
+
+                "timestamp": fulltime,
+                "aq_mainlight_status": aq_main_light_status,
+                "aq_co2_status": aq_co2_status,
+                "aq_heater_status": aq_heater_status,
+                "aq_temp_sen": aq_temp_sen
+
+
             }
+            #z = json.load(JSONnode)
+            JSONnode.append(data_RaspberryAQ)
 
-        temp.append(data_RaspberryAQ)
-    
-    write_json(data, "data/" + datatime + "_data_RaspberryAQ.json")
+            json.dump(controllerinput, f, indent=4, sort_keys=True)
 
-    """
-
-    with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
-        data = json.load(json_file)
-        temp = data['data']
-
-        data_RaspberryAQ = {
-            "timestamp": fulltime,
-            "aq_mainlight_status": aq_main_light_status, 
-            "aq_co2_status": aq_co2_status, 
-            "aq_heater_status": aq_heater_status, 
-            "aq_temp_sen": aq_temp_sen
-            }
-
-        temp.append(data_RaspberryAQ
-        json.dump(data, f, indent=4)
-
-    """
+    # create JSON file
+    except Exception:
+        writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_heater_status, aq_temp_sen)
 
 # ---Check for new input file
     if(loopcounterinput >= checkinputfile):

@@ -1,0 +1,60 @@
+{
+    "data": [
+        {
+            "aq_co2_status": "Off",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "Off",
+            "aq_temp_sen": 25.0,
+            "timestamp": "04.03.2020 01:23:18"
+        },
+        {
+            "aq_co2_status": "Off",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "Off",
+            "aq_temp_sen": 25.0,
+            "timestamp": "04.03.2020 01:23:23"
+        },
+        {
+            "aq_co2_status": "Off",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "Off",
+            "aq_temp_sen": 25.0,
+            "timestamp": "04.03.2020 01:23:28"
+        },
+        {
+            "aq_co2_status": "Off",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "Off",
+            "aq_temp_sen": 25.0,
+            "timestamp": "04.03.2020 01:23:33"
+        },
+        {
+            "aq_co2_status": "Off",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "Off",
+            "aq_temp_sen": 25.0,
+            "timestamp": "04.03.2020 01:23:38"
+        },
+        {
+            "aq_co2_status": "Off",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "Off",
+            "aq_temp_sen": 25.0,
+            "timestamp": "04.03.2020 01:23:43"
+        },
+        {
+            "aq_co2_status": "Off",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "Off",
+            "aq_temp_sen": 25.0,
+            "timestamp": "04.03.2020 01:23:48"
+        },
+        {
+            "aq_co2_status": "Off",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "Off",
+            "aq_temp_sen": 25.0,
+            "timestamp": "04.03.2020 01:23:54"
+        }
+    ]
+}

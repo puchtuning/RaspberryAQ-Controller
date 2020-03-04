@@ -32,6 +32,7 @@ checkinputfile = 5  # default is 60 / all 5 minutes
 # ---Loop counters
 loopcounterinput = checkinputfile
 loopcountermysql = writetomysql
+loopcountertest = 0
 
 # -----GPIO-Configuration
 
@@ -70,11 +71,24 @@ def load_controller_mysql(JSONnode):
     return(str(JSONnode))
 
 # --Write JSON
+def writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_heater_status, aq_temp_sen):
+
+    with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
+
+        data_RaspberryAQ['data'] = [
+            {
+            "timestamp": fulltime,
+            "aq_mainlight_status": aq_main_light_status,
+            "aq_co2_status": aq_co2_status,
+            "aq_heater_status": aq_heater_status,
+            "aq_temp_sen": aq_temp_sen
+            }
+
+        ]
+
+        json.dump(data_RaspberryAQ, f, indent=4, sort_keys=True)
 
 
-def write_json(data, filename):
-    with open(filename, 'w') as f:
-        json.dump(data, f, indent=4)
 
 
 # --Initialize Logging
@@ -161,9 +175,6 @@ except:
     exit()
 
 
-    
-
-
 while True:
 
     # ---Get Times
@@ -233,24 +244,37 @@ while True:
 
 
 # --Data File Output
+    # try to Update JSON
+    try:
+        dataJSON = open("data/" + datatime + "_data_RaspberryAQ.json")
+        controllerinput = json.load(dataJSON)
+        JSONnode = controllerinput['data']
+
+
+        print(JSONnode)
+        with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
 
 
 
-    with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
-
-        data_RaspberryAQ[fulltime] = {
+            data_RaspberryAQ = {
 
 
-            "timestamp": fulltime,
-            "aq_mainlight_status": aq_main_light_status,
-            "aq_co2_status": aq_co2_status,
-            "aq_heater_status": aq_heater_status,
-            "aq_temp_sen": aq_temp_sen
+                "timestamp": fulltime,
+                "aq_mainlight_status": aq_main_light_status,
+                "aq_co2_status": aq_co2_status,
+                "aq_heater_status": aq_heater_status,
+                "aq_temp_sen": aq_temp_sen
 
 
-        } 
+            }
+            #z = json.load(JSONnode)
+            JSONnode.append(data_RaspberryAQ)
 
-        json.dump(data_RaspberryAQ, f, indent=4, sort_keys=True)
+            json.dump(controllerinput, f, indent=4, sort_keys=True)
+
+    # create JSON file
+    except Exception:
+        writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_heater_status, aq_temp_sen)
 
 
 # ---Check for new input file
@@ -292,6 +316,7 @@ while True:
 # ---Loop counters
     loopcounterinput = loopcounterinput + 1
     loopcountermysql = loopcountermysql + 1
+    loopcountertest = loopcountertest + 1
 
 # ---Delay
     time.sleep(sleeptime)
