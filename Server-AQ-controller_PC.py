@@ -2,6 +2,7 @@
 import os
 import glob
 import time
+import datetime
 from datetime import datetime
 
 import logging  # -Enables to write Logfiles
@@ -32,6 +33,7 @@ checkinputfile = 5  # default is 60 / all 5 minutes
 # ---Loop counters
 loopcounterinput = checkinputfile
 loopcountermysql = writetomysql
+loopcounterdelete = 0
 loopcountertest = 0
 
 # -----GPIO-Configuration
@@ -182,6 +184,7 @@ while True:
     date = time.strftime("%d.%m.%Y")
     datatime = time.strftime("%Y-%m-%d")
     fulltime = time.strftime("%d.%m.%Y %H:%M:%S")
+    today = datetime.today()
 
 
 # ---Light switching
@@ -272,6 +275,7 @@ while True:
 
             json.dump(controllerinput, f, indent=4, sort_keys=True)
 
+
     # create JSON file
     except Exception:
         writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_heater_status, aq_temp_sen)
@@ -312,6 +316,21 @@ while True:
             logging.info('Inputfile updated!')
 
         loopcounterinput = 0
+
+# ---Delete old files
+    if(daytime >= "23:19" and daytime <= "23:59"):
+        print("These Files are Older than 7 Days")
+
+        for i in glob.glob('/data/*'):
+            print(i)
+            t = os.stat(i)[8]
+            filetime = datetime.datetime.fromtimestamp(t) - today
+            print(filetime)
+            if(filetime.days == 1):
+                print(i, filetime.days)
+                #os.remove(i)
+
+
 
 # ---Loop counters
     loopcounterinput = loopcounterinput + 1
