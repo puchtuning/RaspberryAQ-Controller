@@ -77,6 +77,8 @@ def writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_he
 
     with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
 
+        data_RaspberryAQ = {}
+
         data_RaspberryAQ['data'] = [
             {
             "timestamp": fulltime,

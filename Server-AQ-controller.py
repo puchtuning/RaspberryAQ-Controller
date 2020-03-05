@@ -287,7 +287,7 @@ while True:
 
         #print(JSONnode)
         with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
-
+            data_RaspberryAQ = {}
 
 
             data_RaspberryAQ = {
