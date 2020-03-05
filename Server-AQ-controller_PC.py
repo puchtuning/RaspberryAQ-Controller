@@ -73,26 +73,24 @@ def load_controller_mysql(JSONnode):
     return(str(JSONnode))
 
 # --Write JSON
+
+
 def writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_heater_status, aq_temp_sen):
-
+    data_RaspberryAQ = {}
     with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
-
-        data_RaspberryAQ = {}
 
         data_RaspberryAQ['data'] = [
             {
-            "timestamp": fulltime,
-            "aq_mainlight_status": aq_main_light_status,
-            "aq_co2_status": aq_co2_status,
-            "aq_heater_status": aq_heater_status,
-            "aq_temp_sen": aq_temp_sen
+                "timestamp": fulltime,
+                "aq_mainlight_status": aq_main_light_status,
+                "aq_co2_status": aq_co2_status,
+                "aq_heater_status": aq_heater_status,
+                "aq_temp_sen": aq_temp_sen
             }
 
         ]
 
         json.dump(data_RaspberryAQ, f, indent=4, sort_keys=True)
-
-
 
 
 # --Initialize Logging
@@ -255,11 +253,8 @@ while True:
         controllerinput = json.load(dataJSON)
         JSONnode = controllerinput['data']
 
-
-        #print(JSONnode)
+        # print(JSONnode)
         with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
-
-
 
             data_RaspberryAQ = {
 
@@ -277,10 +272,10 @@ while True:
 
             json.dump(controllerinput, f, indent=4, sort_keys=True)
 
-
     # create JSON file
     except Exception:
-        writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_heater_status, aq_temp_sen)
+        writeDataFile(datatime, fulltime, aq_main_light_status,
+                      aq_co2_status, aq_heater_status, aq_temp_sen)
 
 
 # ---Check for new input file
@@ -330,8 +325,7 @@ while True:
             print(filetime)
             if(filetime.days == 1):
                 print(i, filetime.days)
-                #os.remove(i)
-
+                # os.remove(i)
 
 
 # ---Loop counters

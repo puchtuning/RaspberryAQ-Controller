@@ -15,7 +15,7 @@ mainlight_relay = 38
 co2_relay = 40
 
 # -----mysql-connection infos
-writetomysql = 180 # default is 180 / all 15 minutes
+writetomysql = 180  # default is 180 / all 15 minutes
 
 
 # ---Write-Frequency
@@ -33,12 +33,14 @@ loopcountermysql = writetomysql
 
 # -----GPIO-Configuration
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(extra_relay, GPIO.OUT) #free relay
-GPIO.setup(heater_relay, GPIO.OUT) #heater
-GPIO.setup(mainlight_relay, GPIO.OUT) #mainlight
-GPIO.setup(co2_relay, GPIO.OUT) #co2
+GPIO.setup(extra_relay, GPIO.OUT)  # free relay
+GPIO.setup(heater_relay, GPIO.OUT)  # heater
+GPIO.setup(mainlight_relay, GPIO.OUT)  # mainlight
+GPIO.setup(co2_relay, GPIO.OUT)  # co2
 
 # ---Text colors
+
+
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -61,6 +63,7 @@ def load_controller_input(JSONnode):
 
     return(str(JSONnode))
 
+
 def load_controller_mysql(JSONnode):
     #print("Read controller input file")
 
@@ -71,17 +74,19 @@ def load_controller_mysql(JSONnode):
     return(str(JSONnode))
 
 # --Write JSON
-def writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_heater_status, aq_temp_sen):
 
+
+def writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_heater_status, aq_temp_sen):
+    data_RaspberryAQ = {}
     with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
 
         data_RaspberryAQ['data'] = [
             {
-            "timestamp": fulltime,
-            "aq_mainlight_status": aq_main_light_status,
-            "aq_co2_status": aq_co2_status,
-            "aq_heater_status": aq_heater_status,
-            "aq_temp_sen": aq_temp_sen
+                "timestamp": fulltime,
+                "aq_mainlight_status": aq_main_light_status,
+                "aq_co2_status": aq_co2_status,
+                "aq_heater_status": aq_heater_status,
+                "aq_temp_sen": aq_temp_sen
             }
 
         ]
@@ -89,15 +94,15 @@ def writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_he
         json.dump(data_RaspberryAQ, f, indent=4, sort_keys=True)
 
 
-
 # --Initialize Logging
 logtime = time.strftime("%Y-%m-%d")
-logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S', filename="log/" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
+logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S',
+                    filename="log/" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
 logging.info('Server-RaspberryAQ Started!')
 print(f"{bcolors.OKGREEN}Server-RaspberryAQ Started!{bcolors.ENDC}")
 time.sleep(5)
 
-## --Temp-Function
+# --Temp-Function
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
@@ -108,21 +113,23 @@ device_file = device_folder + '/w1_slave'
 
 
 def read_temp_raw():
-        f = open(device_file, 'r')
-        lines = f.readlines()
-        f.close()
-        return lines
+    f = open(device_file, 'r')
+    lines = f.readlines()
+    f.close()
+    return lines
+
 
 def read_temp():
+    lines = read_temp_raw()
+    while lines[0].strip()[-3:] != 'YES':
+        time.sleep(0.2)
         lines = read_temp_raw()
-        while lines[0].strip()[-3:] != 'YES':
-                time.sleep(0.2)
-                lines = read_temp_raw()
-        equals_pos = lines[1].find('t=')
-        if equals_pos != -1:
-                temp_string = lines[1][equals_pos+2:]
-                temp_c = float(temp_string) / 1000.0
-                return temp_c
+    equals_pos = lines[1].find('t=')
+    if equals_pos != -1:
+        temp_string = lines[1][equals_pos+2:]
+        temp_c = float(temp_string) / 1000.0
+        return temp_c
+
 
 """
 # For debug without temp sensor
@@ -145,7 +152,8 @@ try:
     aq_co2_on = load_controller_input("aq_co2_on")
     aq_co2_off = load_controller_input("aq_co2_off")
     aq_temp = load_controller_input("aq_temp")
-    lastinputtime = load_controller_input("timestamp") #Reads the time at wich the inputfile was saved
+    # Reads the time at wich the inputfile was saved
+    lastinputtime = load_controller_input("timestamp")
 
     logging.info('Inputfile imported')
 
@@ -163,8 +171,6 @@ try:
         print(f"{bcolors.OKGREEN}MYSQL Infos imported{bcolors.ENDC}")
 
 
-
-
 except:
     print(f"{bcolors.WARNING}Warning: Inputfile couldn't be found!{bcolors.ENDC}")
     print(f"{bcolors.WARNING}Shuting down RasperryAQ-Server!{bcolors.ENDC}")
@@ -172,12 +178,9 @@ except:
     exit()
 
 
-
-
-
 while True:
 
-# ---Get Times
+    # ---Get Times
     daytime = time.strftime("%H:%M")
     date = time.strftime("%d.%m.%Y")
     datatime = time.strftime("%Y-%m-%d")
@@ -218,9 +221,7 @@ while True:
     else:
         GPIO.output(heater_relay, GPIO.HIGH)
         aq_heater_status = "Off"
-        logging.info('Heater is switched off')        
-
-
+        logging.info('Heater is switched off')
 
 
 # ---Output
@@ -248,7 +249,7 @@ while True:
 
     if(useMYSQL == 'True' and loopcountermysql >= writetomysql):
         try:
-            mydb = mysql.connector.connect( #Opens the MYSQL Connection
+            mydb = mysql.connector.connect(  # Opens the MYSQL Connection
                 host=host,
                 user=user,
                 passwd=passwd,
@@ -258,22 +259,24 @@ while True:
             mycursor = mydb.cursor()
 
             sql = "INSERT INTO aq_controller (Controller_ID, aq_timestamp, aq_mainlight, aq_temp, aq_heater, aq_co2_dosing) VALUES (%s, %s, %s, %s, %s, %s)"
-            val = (Controller_ID,  fulltime, aq_main_light_status, aq_temp_sen, aq_heater_status, aq_co2_status)
+            val = (Controller_ID,  fulltime, aq_main_light_status,
+                   aq_temp_sen, aq_heater_status, aq_co2_status)
             mycursor.execute(sql, val)
             mydb.commit()
 
-            print(f"{bcolors.OKGREEN}Values are written to MYSQL Database{bcolors.ENDC}")
+            print(
+                f"{bcolors.OKGREEN}Values are written to MYSQL Database{bcolors.ENDC}")
             #print(mycursor.rowcount, "record inserted.")
             logging.info("MYSQL: Values are written to MYSQL Database")
 
-            mydb.close #Closes the MYSQL Connection
+            mydb.close  # Closes the MYSQL Connection
 
-        
         except:
-            print(f"{bcolors.WARNING}MYSQL: Coudn't connect to MYSQL Database{bcolors.ENDC}")
+            print(
+                f"{bcolors.WARNING}MYSQL: Coudn't connect to MYSQL Database{bcolors.ENDC}")
             logging.warning("MYSQL: Coudn't connect to MYSQL Database")
             pass
-    
+
         loopcountermysql = 0
 
 # --Data File Output
@@ -284,11 +287,8 @@ while True:
         controllerinput = json.load(dataJSON)
         JSONnode = controllerinput['data']
 
-
-        #print(JSONnode)
+        # print(JSONnode)
         with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
-            data_RaspberryAQ = {}
-
 
             data_RaspberryAQ = {
 
@@ -308,7 +308,8 @@ while True:
 
     # create JSON file
     except Exception:
-        writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_heater_status, aq_temp_sen)
+        writeDataFile(datatime, fulltime, aq_main_light_status,
+                      aq_co2_status, aq_heater_status, aq_temp_sen)
 
 # ---Check for new input file
     if(loopcounterinput >= checkinputfile):
@@ -317,7 +318,8 @@ while True:
         try:
             inputtime = load_controller_input("timestamp")
         except:
-            print(f"{bcolors.WARNING}Warning: Inputfile couldn't be found!{bcolors.ENDC}")
+            print(
+                f"{bcolors.WARNING}Warning: Inputfile couldn't be found!{bcolors.ENDC}")
             print(f"{bcolors.WARNING}Running with old config.{bcolors.ENDC}")
             logging.warning("Data: Inputfile couldn't be found!")
 
