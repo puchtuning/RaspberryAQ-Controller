@@ -147,7 +147,7 @@ def read_temp():
 """
 
 # --Initialize JSON structure
-#data_RaspberryAQ = {}
+data_RaspberryAQ = {}
 # Controller_RaspberryAQ = {}
 
 # --Functions Ende
@@ -272,16 +272,14 @@ while True:
             mycursor.execute(sql, val)
             mydb.commit()
 
-            print(
-                f"{bcolors.OKGREEN}Values are written to MYSQL Database{bcolors.ENDC}")
+            print(f"{bcolors.OKGREEN}Values are written to MYSQL Database{bcolors.ENDC}")
             #print(mycursor.rowcount, "record inserted.")
             logging.info("MYSQL: Values are written to MYSQL Database")
 
             mydb.close  # Closes the MYSQL Connection
 
         except:
-            print(
-                f"{bcolors.WARNING}MYSQL: Coudn't connect to MYSQL Database{bcolors.ENDC}")
+            print(f"{bcolors.WARNING}MYSQL: Coudn't connect to MYSQL Database{bcolors.ENDC}")
             logging.warning("MYSQL: Coudn't connect to MYSQL Database")
             pass
 
