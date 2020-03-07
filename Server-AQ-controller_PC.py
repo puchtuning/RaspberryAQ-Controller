@@ -91,6 +91,13 @@ def writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_he
 
         json.dump(data_RaspberryAQ, f, indent=4, sort_keys=True)
 
+# -- Delete Old Files
+
+def DelOldFiles(path):
+
+    os.system("find " + path + " -mtime +30 -print")
+    os.system("find " + path + " -mtime +30 -delete")
+
 
 # --Initialize Logging
 logtime = time.strftime("%Y-%m-%d")
@@ -276,6 +283,15 @@ while True:
         writeDataFile(datatime, fulltime, aq_main_light_status,
                       aq_co2_status, aq_heater_status, aq_temp_sen)
 
+# ---Delete old files
+    if(daytime >= "09:00" and daytime <= "23:59"):
+        print("There are x Files are Older than 30 Days")
+        directory1 = 'log/*.log'
+        directory2 = 'data/*_data_RaspberryAQ.json'
+
+        DelOldFiles(directory1)
+        DelOldFiles(directory2)
+ 
 
 # ---Check for new input file
     if(loopcounterinput >= checkinputfile):
@@ -313,14 +329,8 @@ while True:
 
         loopcounterinput = 0
 
-# ---Delete old files
-    if(daytime >= "09:00" and daytime <= "23:59"):
-        print("These Files are Older than 30 Days")
-        directory = '/log/'
+   
 
-        x = os.system("find " + directory + " -mtime +1 -print")
-        print(x)
-        os.system("find " + directory + " -mtime +60 -delete")
 
 # ---Loop counters
     loopcounterinput = loopcounterinput + 1
@@ -332,3 +342,6 @@ while True:
 
 # ---Beauty-Command
     os.system('clear')  # Disabele for Debug
+
+
+
