@@ -2,7 +2,6 @@
 import os
 import glob
 import time
-import datetime
 from datetime import datetime
 
 import logging  # -Enables to write Logfiles
@@ -184,7 +183,7 @@ while True:
     date = time.strftime("%d.%m.%Y")
     datatime = time.strftime("%Y-%m-%d")
     fulltime = time.strftime("%d.%m.%Y %H:%M:%S")
-    today = datetime.today()
+    
 
 
 # ---Light switching
@@ -315,18 +314,13 @@ while True:
         loopcounterinput = 0
 
 # ---Delete old files
-    if(daytime >= "23:19" and daytime <= "23:59"):
-        print("These Files are Older than 7 Days")
+    if(daytime >= "09:00" and daytime <= "23:59"):
+        print("These Files are Older than 30 Days")
+        directory = '/log/'
 
-        for i in glob.glob('/data/*'):
-            print(i)
-            t = os.stat(i)[8]
-            filetime = datetime.datetime.fromtimestamp(t) - today
-            print(filetime)
-            if(filetime.days == 1):
-                print(i, filetime.days)
-                # os.remove(i)
-
+        x = os.system("find " + directory + " -mtime +1 -print")
+        print(x)
+        os.system("find " + directory + " -mtime +60 -delete")
 
 # ---Loop counters
     loopcounterinput = loopcounterinput + 1
