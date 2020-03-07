@@ -318,7 +318,7 @@ while True:
                       aq_co2_status, aq_heater_status, aq_temp_sen)
 
 # ---Delete old files
-    if(daytime >= "09:00" and daytime <= "23:59"):
+    if(daytime >= "23:58" and daytime <= "23:59"):
         print("There are x Files are Older than 30 Days")
         directory1 = 'log/*.log'
         directory2 = 'data/*_data_RaspberryAQ.json'
