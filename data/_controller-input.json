@@ -1,1 +1,18 @@
-{"Controller-input": {"timestamp": "18.01.2020 23:36:18", "aq_main_light_on": "20:00", "aq_main_light_off": "20:00", "aq_co2_on": "20:00", "aq_co2_off": "20:00", "aq_temp": "28"}}
+{
+    "Controller-input": {
+        "timestamp": "25.01.2020 15:50:52",
+        "aq_main_light_on": "10:00",
+        "aq_main_light_off": "21:00",
+        "aq_co2_on": "11:00",
+        "aq_co2_off": "21:00",
+        "aq_temp": "24",
+        "MYSQL": {
+            "useMYSQL": false, 
+            "HOST": "MYSQL_HOST",
+            "DBNAME": "MYSQL_DATABASE",
+            "USERNAME": "MYSQL_USER", 
+            "PASSWD": "MYSQL_PASSWD",
+            "CONTROLLERID": "Controller_ID"
+        }
+    }
+}
