@@ -1,0 +1,53 @@
+{
+    "data": [
+        {
+            "aq_co2_status": "On",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "On",
+            "aq_temp_sen": 25.0,
+            "timestamp": "08.03.2020 17:17:48"
+        },
+        {
+            "aq_co2_status": "On",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "On",
+            "aq_temp_sen": 25.0,
+            "timestamp": "08.03.2020 17:17:53"
+        },
+        {
+            "aq_co2_status": "On",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "On",
+            "aq_temp_sen": 25.0,
+            "timestamp": "08.03.2020 17:17:58"
+        },
+        {
+            "aq_co2_status": "On",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "On",
+            "aq_temp_sen": 25.0,
+            "timestamp": "08.03.2020 17:18:03"
+        },
+        {
+            "aq_co2_status": "On",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "On",
+            "aq_temp_sen": 25.0,
+            "timestamp": "08.03.2020 17:20:11"
+        },
+        {
+            "aq_co2_status": "On",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "On",
+            "aq_temp_sen": 25.0,
+            "timestamp": "08.03.2020 17:20:17"
+        },
+        {
+            "aq_co2_status": "On",
+            "aq_heater_status": "Off",
+            "aq_mainlight_status": "On",
+            "aq_temp_sen": 25.0,
+            "timestamp": "08.03.2020 17:20:22"
+        }
+    ]
+}

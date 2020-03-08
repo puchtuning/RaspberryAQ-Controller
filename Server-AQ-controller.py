@@ -31,6 +31,9 @@ checkinputfile = 5  # default is 60 / all 5 minutes
 loopcounterinput = checkinputfile
 loopcountermysql = writetomysql
 
+# ---Data Dile Output
+varread = True
+
 # -----GPIO-Configuration
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(extra_relay, GPIO.OUT)  # free relay
@@ -289,9 +292,10 @@ while True:
 
     # try to Update JSON
     try:
-        dataJSON = open("data/" + datatime + "_data_RaspberryAQ.json")
-        controllerinput = json.load(dataJSON)
-        JSONnode = controllerinput['data']
+        if(varread==True):
+            dataJSON = open("data/" + datatime + "_data_RaspberryAQ.json")
+            controllerinput = json.load(dataJSON)
+            JSONnode = controllerinput['data']
 
         # print(JSONnode)
         with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
@@ -316,6 +320,7 @@ while True:
     except Exception:
         writeDataFile(datatime, fulltime, aq_main_light_status,
                       aq_co2_status, aq_heater_status, aq_temp_sen)
+        varread = False
 
 # ---Delete old files
     if(daytime >= "23:58" and daytime <= "23:59"):
