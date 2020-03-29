@@ -31,8 +31,8 @@ checkinputfile = 5  # default is 60 / all 5 minutes
 loopcounterinput = checkinputfile
 loopcountermysql = writetomysql
 
-# ---Data Dile Output
-varread = True
+
+
 
 # -----GPIO-Configuration
 GPIO.setmode(GPIO.BOARD)
@@ -292,39 +292,33 @@ while True:
 
     # try to Update JSON
     try:
-        if(varread==True):
-            dataJSON = open("data/" + datatime + "_data_RaspberryAQ.json")
-            controllerinput = json.load(dataJSON)
-            JSONnode = controllerinput['data']
+        
+        dataJSON = open("data/" + datatime + "_data_RaspberryAQ.json")
+        controllerinput = json.load(dataJSON)
+        JSONnode = controllerinput['data']
 
-            # print(JSONnode)
-            with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
-
-                data_RaspberryAQ = {
-
-
-                    "timestamp": fulltime,
-                    "aq_mainlight_status": aq_main_light_status,
-                    "aq_co2_status": aq_co2_status,
-                    "aq_heater_status": aq_heater_status,
-                    "aq_temp_sen": aq_temp_sen
+        # print(JSONnode)
+        with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
+            data_RaspberryAQ = {
 
 
-                }
-                #z = json.load(JSONnode)
-                JSONnode.append(data_RaspberryAQ)
+                "timestamp": fulltime,
+                "aq_mainlight_status": aq_main_light_status,
+                "aq_co2_status": aq_co2_status,
+                "aq_heater_status": aq_heater_status,
+                "aq_temp_sen": aq_temp_sen
+}
+                
+            #z = json.load(JSONnode)
+            JSONnode.append(data_RaspberryAQ)
 
-                json.dump(controllerinput, f, indent=4, sort_keys=True)
-
-        else:
-            raise Exception
+            json.dump(controllerinput, f, indent=4, sort_keys=True)
 
     # create JSON file
     except Exception:
         writeDataFile(datatime, fulltime, aq_main_light_status,
                       aq_co2_status, aq_heater_status, aq_temp_sen)
         JSONnode = {}
-        varread = False
 
 # ---Delete old files
     if(daytime >= "23:58" and daytime <= "23:59"):
