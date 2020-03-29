@@ -122,7 +122,7 @@ base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
 
-
+"""
 def read_temp_raw():
     f = open(device_file, 'r')
     lines = f.readlines()
@@ -147,7 +147,7 @@ def read_temp():
 def read_temp():
     temp_c = 25.00
     return temp_c
-"""
+
 
 # --Initialize JSON structure
 data_RaspberryAQ = {}
@@ -297,29 +297,33 @@ while True:
             controllerinput = json.load(dataJSON)
             JSONnode = controllerinput['data']
 
-        # print(JSONnode)
-        with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
+            # print(JSONnode)
+            with open("data/" + datatime + "_data_RaspberryAQ.json", 'w') as f:
 
-            data_RaspberryAQ = {
-
-
-                "timestamp": fulltime,
-                "aq_mainlight_status": aq_main_light_status,
-                "aq_co2_status": aq_co2_status,
-                "aq_heater_status": aq_heater_status,
-                "aq_temp_sen": aq_temp_sen
+                data_RaspberryAQ = {
 
 
-            }
-            #z = json.load(JSONnode)
-            JSONnode.append(data_RaspberryAQ)
+                    "timestamp": fulltime,
+                    "aq_mainlight_status": aq_main_light_status,
+                    "aq_co2_status": aq_co2_status,
+                    "aq_heater_status": aq_heater_status,
+                    "aq_temp_sen": aq_temp_sen
 
-            json.dump(controllerinput, f, indent=4, sort_keys=True)
+
+                }
+                #z = json.load(JSONnode)
+                JSONnode.append(data_RaspberryAQ)
+
+                json.dump(controllerinput, f, indent=4, sort_keys=True)
+
+        else:
+            raise Exception
 
     # create JSON file
     except Exception:
         writeDataFile(datatime, fulltime, aq_main_light_status,
                       aq_co2_status, aq_heater_status, aq_temp_sen)
+        JSONnode = {}
         varread = False
 
 # ---Delete old files
