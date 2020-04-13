@@ -101,8 +101,11 @@ def writeDataFile(datatime, fulltime, aq_main_light_status, aq_co2_status, aq_he
 
 def DelOldFiles(path):
 
-    os.system("find " + path + " -mtime +30 -print")
+    mes = os.system("find " + path + " -mtime +30 -print")
     os.system("find " + path + " -mtime +30 -delete")
+
+    logging.warn("Deleted old data files at " + path)
+    logging.warn(mes)
 
 
 # --Initialize Logging
@@ -203,23 +206,23 @@ while True:
     if(daytime >= aq_main_light_on and daytime <= aq_main_light_off):
         GPIO.output(mainlight_relay, GPIO.LOW)
         aq_main_light_status = "On"
-        logging.info('Mainlight is switched on')
+        logging.info('Mainlight is switched on' + aq_main_light_on)
     else:
         GPIO.output(mainlight_relay, GPIO.HIGH)
         aq_main_light_status = "Off"
-        logging.info('Mainlight is switched off')
+        logging.info('Mainlight is switched off' + aq_main_light_off)
 
 # ---CO2 switching
 
     if(daytime >= aq_co2_on and daytime <= aq_co2_off):
         GPIO.output(co2_relay, GPIO.LOW)
         aq_co2_status = "On"
-        logging.info('CO2 is switched on')
+        logging.info('CO2 is switched on' + aq_co2_on)
 
     else:
         GPIO.output(co2_relay, GPIO.HIGH)
         aq_co2_status = "Off"
-        logging.info('CO2 is switched off')
+        logging.info('CO2 is switched off' + aq_co2_off)
 
 # ---Temp switching
 
@@ -228,11 +231,11 @@ while True:
     if(aq_temp_sen <= aq_temp):
         GPIO.output(heater_relay, GPIO.LOW)
         aq_heater_status = "On"
-        logging.info('Heater is switched on')
+        logging.info('Heater is switched on' + aq_temp_sen)
     else:
         GPIO.output(heater_relay, GPIO.HIGH)
         aq_heater_status = "Off"
-        logging.info('Heater is switched off')
+        logging.info('Heater is switched off' + aq_temp_sen)
 
 
 # ---Output
@@ -314,11 +317,14 @@ while True:
 
             json.dump(controllerinput, f, indent=4, sort_keys=True)
 
+        logging.info("Updated new data file.")
+
     # create JSON file
     except Exception:
         writeDataFile(datatime, fulltime, aq_main_light_status,
                       aq_co2_status, aq_heater_status, aq_temp_sen)
         JSONnode = {}
+        logging.info("Created new data file.")
 
 # ---Delete old files
     if(daytime >= "23:58" and daytime <= "23:59"):
