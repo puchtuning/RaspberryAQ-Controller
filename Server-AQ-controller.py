@@ -317,7 +317,7 @@ while True:
 
             json.dump(controllerinput, f, indent=4, sort_keys=True)
 
-        logging.info("Updated new data file.")
+        logging.info("Updated data file.")
 
     # create JSON file
     except Exception:
