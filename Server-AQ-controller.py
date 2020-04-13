@@ -231,11 +231,11 @@ while True:
     if(aq_temp_sen <= aq_temp):
         GPIO.output(heater_relay, GPIO.LOW)
         aq_heater_status = "On"
-        logging.info('Heater is switched on' + aq_temp_sen)
+        logging.info('Heater is switched on' + str(aq_temp_sen))
     else:
         GPIO.output(heater_relay, GPIO.HIGH)
         aq_heater_status = "Off"
-        logging.info('Heater is switched off' + aq_temp_sen)
+        logging.info('Heater is switched off' + str(aq_temp_sen))
 
 
 # ---Output
