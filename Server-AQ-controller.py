@@ -109,9 +109,15 @@ def DelOldFiles(path):
 
 
 # --Initialize Logging
-logtime = time.strftime("%Y-%m-%d")
-logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S',
+def IntLogging():
+    logtime = time.strftime("%Y-%m-%d")
+    logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S',
                     filename="log/" + logtime + "_Server-RaspberryAQ.log", level=logging.INFO)
+
+
+
+# -- Start Server
+IntLogging()
 logging.info('Server-RaspberryAQ Started!')
 print(f"{bcolors.OKGREEN}Server-RaspberryAQ Started!{bcolors.ENDC}")
 time.sleep(5)
@@ -326,14 +332,16 @@ while True:
         JSONnode = {}
         logging.info("Created new data file.")
 
-# ---Delete old files
-    if(daytime >= "23:58" and daytime <= "23:59"):
+# ---Delete old files and start new Logfile
+    if(daytime >= "00:00" and daytime <= "00:01"):
         print("There are x Files are Older than 30 Days")
         directory1 = 'log/*.log'
         directory2 = 'data/*_data_RaspberryAQ.json'
 
         DelOldFiles(directory1)
         DelOldFiles(directory2)
+
+        IntLogging()
  
 
 # ---Check for new input file
