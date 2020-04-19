@@ -212,23 +212,23 @@ while True:
     if(daytime >= aq_main_light_on and daytime <= aq_main_light_off):
         GPIO.output(mainlight_relay, GPIO.LOW)
         aq_main_light_status = "On"
-        logging.info('Mainlight is switched on' + aq_main_light_on)
+        logging.info('Mainlight is switched on ' + aq_main_light_on)
     else:
         GPIO.output(mainlight_relay, GPIO.HIGH)
         aq_main_light_status = "Off"
-        logging.info('Mainlight is switched off' + aq_main_light_off)
+        logging.info('Mainlight is switched off ' + aq_main_light_off)
 
 # ---CO2 switching
 
     if(daytime >= aq_co2_on and daytime <= aq_co2_off):
         GPIO.output(co2_relay, GPIO.LOW)
         aq_co2_status = "On"
-        logging.info('CO2 is switched on' + aq_co2_on)
+        logging.info('CO2 is switched on ' + aq_co2_on)
 
     else:
         GPIO.output(co2_relay, GPIO.HIGH)
         aq_co2_status = "Off"
-        logging.info('CO2 is switched off' + aq_co2_off)
+        logging.info('CO2 is switched off ' + aq_co2_off)
 
 # ---Temp switching
 
@@ -237,11 +237,11 @@ while True:
     if(aq_temp_sen <= aq_temp):
         GPIO.output(heater_relay, GPIO.LOW)
         aq_heater_status = "On"
-        logging.info('Heater is switched on' + str(aq_temp_sen))
+        logging.info('Heater is switched on ' + str(aq_temp_sen))
     else:
         GPIO.output(heater_relay, GPIO.HIGH)
         aq_heater_status = "Off"
-        logging.info('Heater is switched off' + str(aq_temp_sen))
+        logging.info('Heater is switched off ' + str(aq_temp_sen))
 
 
 # ---Output
